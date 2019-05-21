@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+}
+html, body {
+  background: map-get($color, white);
+  font-family: map-get($font-family, body);
+  overscroll-behavior: contain;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+h2 {
+  font-size: map-get($font-size, lg);
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: map-get($font-family, body);
+  color: map-get($color, text);
+  @include pxRem('line-height', 34);
+  font-weight: 400;
+  @include pxRem('margin', 0 0 15);
+}
+.sub-meta {
+  color: map-get($color, cancel);
+}
+.text-prewarp {
+  white-space: pre-wrap;
+}
+.text-danger {
+  color: map-get($color, danger);
+}
+.wrapper {
+  @include pxRem('padding', 20);
+}
+p {
+  color: map-get($color, text);
+}
+.content-wrapper {
+  height: calc(100vh - 75px);
+  overflow: scroll;
+  padding-bottom: 100px;
+  display: block;
+}
+.filter-link {
+  display: block;
+  @include pxRem('margin', 10 20 10 20);
+}
+.auto-height {
+  height: auto !important;
+}
+.toggle-display {
+  display: none;
+}

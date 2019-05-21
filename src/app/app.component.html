@@ -1,0 +1,5 @@
+<!-- <app-feature *ngIf="isAuthenticated"></app-feature>
+<app-auth *ngIf="!isAuthenticated"></app-auth> -->
+<div [ngClass]="isHeaderShow ? 'show-scrolling-header': 'disable-scrolling-header'">
+  <router-outlet></router-outlet> 
+</div>

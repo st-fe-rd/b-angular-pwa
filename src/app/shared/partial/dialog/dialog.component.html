@@ -1,0 +1,51 @@
+<div [ngSwitch]="type">
+  <div class="dialog" *ngSwitchCase="'msg_refresh_dlg'">
+    <div class="content-dlg">
+      <h2 class="title">{{ 'dialog.msg_refresh_dlg.no_network' | translate }}</h2>
+    </div>
+    <div class="action-dlg">
+      <button md-dialog-close class="btn-no-style" (click)="onCloseDialog(true)" type="button">{{ 'dialog.msg_refresh_dlg.actions.ok' | translate }}</button>
+    </div>
+  </div>
+  <div class="dialog" *ngSwitchCase="'msg_auth_dlg'">
+    <div class="content-dlg">
+      <h2 class="title">{{ 'dialog.msg_auth_dlg.unauthorized' | translate }}</h2>
+    </div>
+    <div class="action-dlg">
+      <button (click)="onCloseDialog(true)" class="btn-no-style">{{ 'dialog.msg_auth_dlg.actions.login' | translate }}</button>
+    </div>
+  </div>
+  <div class="dialog" *ngSwitchCase="'msg_404_dlg'">
+    <div class="content-dlg">
+      <h2 class="title">{{ 'dialog.msg_404_dlg.404_msg' | translate }}</h2>
+    </div>
+    <div class="action-dlg">
+      <button (click)="onCloseDialog(true)" class="btn-no-style">{{ 'dialog.actions.ok' | translate }}</button>
+    </div>
+  </div>
+  <div class="dialog dialog-two-btn" *ngSwitchCase="'delete_confirm_dlg'">
+    <div class="content-dlg">
+      <h2 class="title">{{ 'dialog.delete_confirm_dlg.msg' | translate }}</h2>
+    </div>
+    <div class="action-dlg">
+      <button (click)="onCloseDialog(true)" class="btn-no-style">{{ 'dialog.actions.ok' | translate }}</button>
+      <button (click)="onCloseDialog(false)" class="btn-no-style">{{ 'dialog.actions.cancel' | translate }}</button>
+    </div>
+  </div>
+  <div class="dialog" *ngSwitchCase="'custom_msg_dlg'">
+      <div class="content-dlg">
+        <h2 class="title" *ngFor="let item of title">{{ item }}</h2>
+      </div>
+      <div class="action-dlg">
+        <button (click)="onCloseDialog(true)" class="btn-no-style">{{ 'dialog.actions.ok' | translate }}</button>
+      </div>
+    </div>
+    <div class="dialog" *ngSwitchCase="'msg_sys_dlg'">
+      <div class="content-dlg">
+        <h2 class="title">{{ 'dialog.msg_sys_dlg.500_msg' | translate }}</h2>
+      </div>
+      <div class="action-dlg">
+        <button (click)="onCloseDialog(true)" class="btn-no-style">{{ 'dialog.actions.ok' | translate }}</button>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,106 @@
+.newfeed {
+  display: block;
+  height: 100%;
+  .content {
+    height: 100% !important;
+    overflow-Y: auto;
+    .post {
+      // @include pxRem('padding-bottom', 20);
+      .branch {
+        @include pxRem('padding', 5 40 5 20);
+        font-weight: bold;
+        @include pxRem('font-size', 16);
+      }
+      .description {
+        @include pxRem('padding', 10 20);
+        p {
+          line-height: 1.4;
+          white-space: pre-wrap;
+        }
+      }
+      .tag-container {
+        font-size: 10px;
+        width: 90%;
+        @include pxRem('padding', 10 20);
+        margin: 0 auto;
+        background: map-get($color, secondary);
+        color: map-get($color, cancel);
+        border-radius: 4px;
+        border-top: 1px solid #f0f0f0;
+        border-bottom: 1px solid #f0f0f0;
+      }
+      .label-container {
+        font-size: 10px;
+        width: 90%;
+        @include pxRem('padding', 10 0);
+        margin: 0 auto;
+        background: map-get($color, white);
+        border-bottom: 1px solid #f0f0f0;
+        color: map-get($color, cancel);
+        .likes-count {
+          float: right;
+          padding-left: 10%;
+        }
+        .comments-count {
+          float: right;
+        }
+      }
+      .action-container {
+        @include pxRem('padding', 12 15);
+        margin: 0;
+        .btn {
+          @include pxRem('padding', 5 20);
+        }
+        .btn-primary {
+          color: map-get($color, white);
+          border-color: map-get($color, primary);
+          background-color: map-get($color, primary);
+        }
+        .btn-like {
+          background-color: map-get($color, white);
+          border: none;
+          outline: none;
+          .unLike {
+            color: map-get($color, disabled);
+          }
+          .isLiked {
+            color: map-get($color, reaction);
+          }
+        }
+        .btn-comment {
+          background-color: map-get($color, white);
+          border: none;
+          outline: none;
+          .icon-comment {
+            color: map-get($color, primary);
+          }
+          &:active {
+            .icon-comment {
+              color: map-get($color, primary-press);
+            }
+          }
+        }
+        .action-icon {
+          @include pxRem('padding-right', 10);
+          @include pxRem('font-size', 24);
+          vertical-align: middle;
+        }
+        .action-text {
+          @include pxRem('font-size', 14);
+        }
+      }
+      .divide {
+        @include pxRem('padding', 16 0 16 0);
+        margin: 0 auto;
+        background: map-get($color, secondary);
+        border-top: 1px solid #f0f0f0;
+        border-bottom: 1px solid #f0f0f0;
+        color: map-get($color, cancel);
+      }
+    }
+    .loading {
+      @include pxRem('padding', 20);
+      text-align: center;
+    }
+  }
+}

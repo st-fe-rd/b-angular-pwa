@@ -1,0 +1,41 @@
+.mat-form-field {
+  width: 100%;
+  .mat-input-element {
+    @include pxRem('font-size', 12);
+    @include pxRem('padding', 0 20);
+    @include pxRem('height', 35);
+    @include pxRem('margin-top', 10);
+    color: map-get($color, text);
+    font-weight: normal;
+    line-height: 1.5;
+  }
+  .mat-form-field-infix {
+    @include pxRem('height', 35);
+    border: 1px solid map-get($color, disabled);
+    padding: 0;
+    border-radius: 4px;
+    &::after {
+      @include pxRem('right', 20 !important);
+      color: map-get($color, white) !important;
+      pointer-events: none;
+    }
+    &::before {
+      content: "";
+      @include pxRem('width', 20);
+      @include pxRem('height', 20);
+      background: map-get($color, primary);
+      position: absolute;
+      top: 50%;
+      @include pxRem('right', 15);
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+      border-radius: 50%;
+    }
+  }
+  .mat-form-field-underline {
+    display: none;
+  }
+  .mat-form-field-wrapper {
+    padding-bottom: 0 !important;
+  }
+}

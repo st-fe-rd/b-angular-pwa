@@ -1,0 +1,9 @@
+.footer {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  @include pxRem('padding', 20 10);
+  background-color: map-get($color, white-c);
+  @include box-shadow(0 -1px 10px 0 map-get($color, rgba-black));
+}

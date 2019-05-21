@@ -1,0 +1,124 @@
+.post-detail {
+  overflow: hidden;
+  height: calc(100vh - 75px);
+  @include pxRem('padding-top', 50);
+  #detail-box {
+    height: 100%;
+  }
+  .container {
+    .menu {
+      @include pxRem(height, 50);
+      overflow: hidden;
+      background: map-get($color, secondary);
+      position: fixed;
+      width: 100%;
+      @include pxRem('max-width', 500);
+      border-top: 1px solid #f0f0f0;
+      z-index: 1;
+      @include pxRem('top', 72);
+      align-items: center;
+      justify-content: space-between;
+      display: flex;
+      @include pxRem('padding', 0 20);
+      .comment-button {
+        width: 35%;
+        text-decoration: none;
+        font-weight: bold;
+        @include pxRem('font-size', 16);
+        &:link, &:active, &:visited {
+          color: map-get($color, primary);
+        }
+        .back-icon {
+          padding-right: 10%;
+        }
+      }
+      .comments-count {
+        color: map-get($color, text);
+        @include pxRem('font-size', 14);
+      }
+    }
+    .form-container {
+      form {
+        position: relative;
+      }
+      overflow: hidden;
+      background: map-get($color, white);
+      position: fixed;
+      bottom: 0;
+      @include pxRem('max-width', 500);
+      z-index: 1;
+      width: 100%;
+      @include pxRem('padding', 5 20 16 20);
+      color: map-get($color, cancel);
+      .branch {
+        @include pxRem('margin-bottom', 5);
+        color: map-get($color, cancel);
+        @include pxRem('font-size', 10);
+      }
+      .form-comment {
+        .input-comment {
+          @include pxRem('height', 68);
+          @include pxRem('padding-left', 10);
+          outline:none;
+          border: 1px solid #e0e0dd;
+          background: #ffffff;
+          @include pxRem('padding', 12 40 12 12);
+          @include pxRem('font-size', 16);
+          border-radius: 4px;
+        }
+        .btn-comment {
+          z-index: 0;
+          position: absolute;
+          @include pxRem('right', 10);
+          @include pxRem('bottom', 10);
+          border: none;
+          outline: none;
+          color: map-get($color, primary);
+          background: none;
+          @include pxRem('font-size', 20);
+          &-disabled {
+            color: map-get($color, disabled);
+          }
+          .icon-send-press {
+            color: map-get($color, primary-press);
+          }
+        }
+      }
+    }
+    .content {
+      @include pxRem(padding, 0 20 103 20);
+      .comment-container {
+        .branch {
+          font-weight: bold;
+          @include pxRem('padding', 5 0);
+        }
+        .time-comment {
+          padding: 3% 0 5% 0;
+          color: map-get($color, cancel);
+          @include pxRem('font-size', 11px);
+        }
+        .text-comment {
+          line-height: 1.4;
+          white-space: pre-wrap;
+        }
+        .no-comments {
+          @include pxRem('padding-top', 20);
+          color: map-get($color, cancel);
+          @include pxRem('font-size', 14);
+        }
+      }
+      #input-comment {
+        // @include pxRem('padding-bottom', 20);
+        overflow-y: auto;
+        position: fixed;
+        @include pxRem('left', 20);
+        @include pxRem('right', 20);
+        // max-height: 70vh;
+        .loading-comments {
+          @include pxRem('padding', 20);
+          text-align: center;
+        }
+      }
+    }
+  }
+}

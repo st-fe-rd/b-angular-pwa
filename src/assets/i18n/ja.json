@@ -1,0 +1,72 @@
+{
+  "action": {
+    "accept": "Accept",
+    "close": "Close",
+    "reject": "Reject",
+    "retry": "Retry",
+    "yes": "Yes"
+  },
+  "alert": {
+    "danger": "This is Dangerous message",
+    "info": "Your information",
+    "success": "You have done your task",
+    "warning": "This is Warning message"
+  },
+  "filter": {
+    "default": "タグで検索"
+  },
+  "projectName": "Staff App",
+  "fe": "AT Frontend Team",
+  "form": {
+    "link": "Allow only web address (URL), eg. http://web.com/",
+    "required": "Please enter value",
+    "description": "説明...",
+    "comment": "コメントする…"
+  },
+  "noPost": "投稿はありません。",
+  "nav": {
+    "about": "About",
+    "dashboard": "Introduction",
+    "home": "Home",
+    "service": "Services",
+    "utilities": "Utilities"
+  },
+  "sitename": "Boilerplate Angular",
+  "dialog": {
+    "button": {
+      "delete": "削除"
+    },
+    "actions": {
+      "ok": "OK",
+      "retry": "Retry",
+      "cancel": "キャンセル"
+    },
+    "msg_refresh_dlg": {
+      "no_network": "Network error\n Check the network settings",
+      "actions": {
+        "ok": "Ok"
+      }
+    },
+    "msg_auth_dlg": {
+      "unauthorized": "Your Sessions is expired or damaged.\n Please try again!",
+      "actions": {
+        "login": "Got it!"
+      }
+    },
+    "msg_404_dlg": {
+      "404_msg": "404 ERROR"
+    },
+    "msg_sys_dlg": {
+      "500_msg": "System error.\nRetry later.",
+      "actions": {
+        "ok": "Ok"
+      }
+    },
+    "delete_confirm_dlg": {
+      "msg": "削除してよろしいですか？"
+    }
+  },
+  "post_detail": {
+    "comment": "コメント"
+  }
+}

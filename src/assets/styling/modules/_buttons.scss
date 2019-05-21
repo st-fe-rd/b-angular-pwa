@@ -1,0 +1,77 @@
+.btn {
+  @include transition(all 50ms ease);
+  @include border-radius(3px);
+  border: 1px solid map-get($color, primary);
+  @include pxRem('padding', 12 10);
+  outline: none;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  zoom: 1;
+}
+.btn-transparent {
+  outline: none;
+  text-decoration: none;
+  text-align: center;
+  background-color: transparent;
+  border: 0;
+}
+.btn-primary {
+  color: map-get($color, white);
+  border-color: map-get($color, primary);
+  background-color: map-get($color, primary);
+  &:hover {
+    color: map-get($color, primary);
+    border-color: map-get($color, primary);
+    background-color: map-get($color, white);
+  }
+}
+.btn-disabled {
+  background-color: map-get($color, disabled);
+  border-color: map-get($color, disabled);
+  color: map-get($color, white);
+  -webkit-tap-highlight-color: transparent;
+}
+.btn-actived {
+  background-color: map-get($color, primary);
+  border-color: map-get($color, primary);
+}
+.btn-cancel {
+  display: block;
+  color: map-get($color, white);
+  border-color: map-get($color, cancel);
+  background-color: map-get($color, cancel);
+  &:hover {
+    color: map-get($color, cancel);
+    border-color: map-get($color, cancel);
+    background-color: map-get($color, white);
+  }
+}
+.group-button {
+  text-align: center;
+  .btn {
+    @include pxRem('margin-left', 20);
+  }
+  .btn-medium {
+    @include pxRem('width', 160);
+    position: relative;
+    i {
+      @include pxRem('left', 15);
+      position: absolute;
+    }
+  }
+}
+.btn-actions {
+  @include pxRem('height', 24);
+  @include pxRem('line-height', 24);
+  @include pxRem('padding', 0 5);
+  .action-text {
+    @include pxRem('height', 30);
+    vertical-align: middle;
+    display: inline-block;
+  }
+}
+.btn-line {
+  line-height: 1;
+}

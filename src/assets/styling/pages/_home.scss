@@ -1,0 +1,229 @@
+$n: 5;
+
+.home {
+  .filter-link {
+    .mat-form-field {
+      pointer-events: none;
+    }
+  }
+  .mat-tab-labels {
+    // border-bottom: 2px solid map-get($color, primary);
+    display: block;
+    .mat-tab-label {
+      height: auto;
+      width: 20%;
+      @include pxRem('padding', 8 0);
+      box-shadow: 2px 0 4px 0 rgba(0, 0, 0, 0.3);
+      border-radius: 4px 4px 0 0;
+      outline: none;
+      opacity: 1;
+      font-size: map-get($font-size, sm);
+      font-weight: normal;
+      @for $i from 1 through $n {
+        &:nth-child(#{$i}) {
+          z-index: calc(5 - #{$i});
+        }
+      }
+      &:nth-child(3n+1) {
+        border: 1px solid map-get($color, primary);
+        background: map-get($color, primary) !important;
+      }
+      &:nth-child(3n+2) {
+        border: 1px solid map-get($color, orange);
+        background: map-get($color, orange) !important;
+      }
+      &:nth-child(3n) {
+        border: 1px solid map-get($color, green);
+        background: map-get($color, green) !important;
+      }
+      .mat-tab-label-content {
+        color: map-get($color, white);
+      }
+    }
+    .mat-tab-label-active {
+      text-align: center;
+      z-index: 6;
+      position: relative;
+      @include pxRem('padding', 25 0 10 0 !important);
+      margin-left: 0;
+      .mat-tab-label-content {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+      }
+    }
+  }
+  .mat-tab-nav-bar {
+    border-bottom: 1px solid map-get($color, primary); 
+  }
+  .mat-tab-header-pagination {
+    display: none;
+  }
+  .mat-tab-label-container {
+    display: block;
+  }
+  .no-post {
+    @include pxRem('font-size', 18);
+  }
+  .center-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .container {
+    @include pxRem('padding-top', 20);
+    .post-label {
+      z-index: 1000;
+      @include pxRem('width', 60);
+      @include pxRem('height', 60);
+      border-radius: 50%;
+      position: fixed;
+      bottom: 3%;
+      right: 5%;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+      .post-icon::before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        @include pxRem('font-size', 32);
+      }
+    }
+    .btn {
+      @include pxRem('padding', 8 30);
+    }
+    .btn-primary {
+      color: map-get($color, white);
+      border-color: map-get($color, primary);
+      background-color: map-get($color, primary);
+    }
+    .post-btn {
+      display: none;
+    }
+    .post-menu {
+      overflow: hidden;
+      height: 100vh;
+      top: 0;
+      background: #fcfcfc;
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+      @include pxRem('max-width', 500);
+      border-top: 1px solid #f0f0f0;
+    }
+  }
+  @media (max-width: 320px) {
+    .mat-tab-label {
+      font-size: 10px !important;
+    }
+  }
+  @media (max-width: 599px) {
+    .mat-tab-label {
+      min-width: 64px;
+    }
+  }
+  @media (min-width: 768px) {
+    .mat-tab-label {
+      min-width: 150px;
+    }
+  }
+}
+.navbar-search, .tab-news {
+  transition: all 0.3s ease-in-out;
+}
+.navbar-search {
+  @include pxRem(padding-top, 2);
+}
+.mat-form-field-infix {
+  position: relative;
+  #hiddenSelect {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 85%;
+    background-color: white;
+    @include pxRem(font-size, 12);
+    @include pxRem(padding, 7 20);
+    color: #333333;
+    font-weight: normal;
+    line-height: 1.5;
+  }
+}
+.tab-news {
+  @include pxRem(top, 125);
+  height: auto;
+  position: fixed;
+  -webkit-overflow-scrolling: touch;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+#fake-home-div {
+  position: fixed;
+  bottom: 0;
+}
+
+.show-scrolling-header {
+  .page-header {
+    top : 0
+  }
+  .filter-scroll-invi {
+    @include pxRem(top, 70);
+  }
+  .filter-scroll-visible {
+    @include pxRem(top, 70);
+  }
+  .tab-news {
+    transition: transform 0.3s ease-in-out, bottom 1s ease-in-out;
+    transform: none;
+  }
+  .filter-newsfeed {
+    transform: none;
+  }
+  .home{
+    #fake-home-div {
+      @include pxRem(top, 165);
+    }
+  }
+  .filter-newsfeed {
+    #fake-home-div {
+      @include pxRem(top, 125);
+    }
+  }
+  
+}
+
+.disable-scrolling-header {
+  .page-header {
+    @include pxRem(top, -70);
+  }
+  .filter-scroll-invi {
+    @include pxRem(top, -65);
+  }
+  .filter-scroll-visible {
+    @include pxRem(top, 10);
+  }
+  .tab-news {
+    transform: translateY(-120px);
+    // @include pxRem(bottom, -120);
+  }
+  // .filter-newsfeed {
+  //   transform: translateY(-55px);
+  //   // @include pxRem(bottom, -55);
+  // }
+  .home{
+    #fake-home-div {
+      @include pxRem(top, 6);
+    }
+  }
+  .filter-newsfeed {
+    #fake-home-div {
+      @include pxRem(top, 70);
+    }
+  }
+}
+

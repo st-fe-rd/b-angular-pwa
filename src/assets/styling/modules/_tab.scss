@@ -1,0 +1,15 @@
+.blue-border{
+  border-bottom: 2px solid map-get($color, primary);
+}
+.green-border{
+  border-bottom: 2px solid map-get($color, green);
+}
+.orange-border{
+  border-bottom: 2px solid map-get($color, orange);
+}
+.mat-tab-body-wrapper {
+  height: calc(100% - 40px);
+}
+.mat-tab-body {
+  height: 100%;
+}

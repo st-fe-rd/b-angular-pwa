@@ -1,0 +1,40 @@
+.sidebar {
+  position: fixed;
+  @include pxRem('top', 51);
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  @include pxRem('padding', 20);
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  border-right: 1px solid #eee;
+}
+
+/* Sidebar navigation */
+.sidebar {
+  @include pxRem('padding-left', 0);
+  @include pxRem('padding-right', 0);
+}
+
+.sidebar .nav {
+  @include pxRem('margin-bottom', 20);
+}
+
+.sidebar .nav-item {
+  width: 100%;
+}
+
+.sidebar .nav-item + .nav-item {
+  @include pxRem('margin-left', 0);
+}
+
+.sidebar .nav-item.active .nav-link {
+  color: #868e96;
+}
+
+.sidebar .nav-link {
+  border-radius: 0;
+}
+.grey-color {
+  color: map-get($color, cancel);
+}

@@ -1,0 +1,15 @@
+.page-main {
+  @include pxRem('padding-top', 73);
+  position: absolute; 
+  height: 100%;
+  display: block;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+// .page-absolute {
+//   @include pxRem('top', 73);
+//   left: 0;
+//   right: 0;
+//   position: absolute; 
+// }

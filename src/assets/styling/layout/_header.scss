@@ -1,0 +1,49 @@
+.page-header {
+  @include transition(all 0.3s ease-in-out);
+  background-color: white;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  top: 0px;
+  text-align: center;
+  .container {
+    @extend %clr;
+    @include pxRem('padding', 0 20);
+    margin: 0 auto;
+    max-width: $container-width;
+    .logo {
+      max-width: 100%;
+      width: 100px;
+    }
+  }
+  .navbar-brand {
+    text-decoration: none;
+    font-weight: bold;
+    &:link,
+    &:visited {
+      color: map-get($color, secondary);
+    }
+    &:hover {
+      color: map-get($color, primary);
+    }
+    &:active {
+      color: map-get($color, primary);
+    }
+  }
+  .header-icon {
+    color: map-get($color, white);
+  }
+}
+.header-container {
+  position: relative;
+  .comment-button {
+    @include pxRem('padding-right', 7);
+    @include pxRem('margin-left', -3);
+    @include pxRem('left', 20);
+    @include pxRem('font-size', 20);
+    top: 50%;
+    color: map-get($color, cancel);
+    transform: translateY(-50%);
+    position: absolute;
+  }
+}

@@ -1,0 +1,18 @@
+/* styling for loading */
+.loading-icon {
+  &.icon-large {
+    @include pxRem('max-width', 80);
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &.icon-inline {
+    max-width: 32px;
+  }
+}
+.logo-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
