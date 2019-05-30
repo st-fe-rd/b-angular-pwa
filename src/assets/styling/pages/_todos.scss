@@ -1,0 +1,190 @@
+button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 100%;
+  vertical-align: baseline;
+  font-family: inherit;
+  font-weight: inherit;
+  color: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-smoothing: antialiased;
+}
+button, input[type='checkbox'] {
+  outline: none;
+}
+input {
+  outline: none;
+}
+._1LCq9,
+._2TStV {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  font-size: 24px;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: 1.4em;
+  border: 0;
+  outline: none;
+  color: inherit;
+  padding: 6px;
+  border: 1px solid #999;
+  box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  font-smoothing: antialiased;
+}
+.todos {
+  width: 550px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  margin: 120px 0 40px 0;
+  position: relative;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+  .todos-header {
+    ._1LCq9 {
+      padding: 16px 16px 16px 60px;
+      border: none;
+      background: rgba(0, 0, 0, 0.003);
+      box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
+      &._2TStV {
+        position: relative;
+        margin: 0;
+        width: 100%;
+        font-size: 24px;
+        font-family: inherit;
+        font-weight: inherit;
+        line-height: 1.4em;
+        border: 0;
+        outline: none;
+        color: inherit;
+        padding: 6px;
+        border: 1px solid #999;
+        box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
+        box-sizing: border-box;
+        font-smoothing: antialiased;
+      }
+    }
+  }
+  .todos-main {
+    position: relative;
+    z-index: 2;
+    border-top: 1px solid #e6e6e6;
+  }
+  .todos-footer {
+    color: #777;
+    padding: 10px 15px;
+    height: 40px;
+    text-align: center;
+    border-top: 1px solid #e6e6e6;
+    display: block;
+    &:before {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 50px;
+      overflow: hidden;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
+    }
+    ._2aiYj {
+      float: left;
+      text-align: left;
+    }
+    ._2Rdg5 {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      position: absolute;
+      right: 0;
+      left: 0;
+      li {
+        display: inline;
+        a {
+          color: inherit;
+          margin: 3px;
+          padding: 3px 7px;
+          text-decoration: none;
+          border: 1px solid transparent;
+          border-radius: 3px;
+          &:hover {
+            border-color: rgba(175, 47, 47, 0.1);
+          }
+        }
+      }
+    }
+    ._2VhED, html ._2VhED:active {
+      float: right;
+      position: relative;
+      line-height: 20px;
+      text-decoration: none;
+      cursor: pointer;
+      position: relative;
+    }
+  }
+  .todo-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    .todo-item {
+      position: relative;
+      font-size: 24px;
+      border-bottom: 1px solid #ededed;
+      &:last-child {
+        border-bottom: none;
+      }
+      &:hover {
+        ._6oXTL {
+          display: block;
+        }
+      }
+      label {
+        white-space: pre-line;
+        word-break: break-all;
+        padding: 15px 60px 15px 15px;
+        margin-left: 45px;
+        display: block;
+        line-height: 1.2;
+        transition: color 0.4s;
+      }
+      ._6oXTL {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 10px;
+        bottom: 0;
+        width: 40px;
+        height: 40px;
+        margin: auto 0;
+        font-size: 30px;
+        color: #cc9a9a;
+        margin-bottom: 11px;
+        transition: color 0.2s ease-out;
+        &:after {
+          content: "\D7";
+        }
+      }
+    }
+  }
+  .item-check {
+    text-align: center;
+    width: 40px;
+    height: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    &:after {
+      content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" …50" cy="50" r="50" fill="none" stroke="%23ededed" stroke-width="3"/></svg>');
+    }
+  }
+}

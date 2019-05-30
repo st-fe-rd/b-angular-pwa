@@ -1,8 +1,10 @@
 .text-middle {
   display: inline-block;
   vertical-align: middle;
-  [class^="i-"], [class*=" i-"] {
-    display: inline-block;
-    vertical-align: text-bottom;
-  }
+}
+.text-centered {
+  text-align: center !important;
+}
+.hidden {
+  display: none !important;
 }
