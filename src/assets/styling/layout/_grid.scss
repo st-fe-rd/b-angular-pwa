@@ -15,14 +15,6 @@ $grid-columns: 12;
 }
 // End mixins for build grid
 $grid-gutter: 15px;
-$container-width: 500px;
-.container {
-  @extend %clr;
-  // padding-left: $grid-gutter;
-  // padding-right: $grid-gutter;
-  margin: 0 auto;
-  max-width: $container-width;
-}
 .row {
   @extend %clr;
   margin-left: -$grid-gutter;

@@ -20,10 +20,11 @@
               "src/assets",
               "src/api",
               "src/favicon.ico",
-              "src/manifest.webmanifest"
+              "src/manifest.json"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
+              // "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
+              "./node_modules/animate.css/animate.min.css",
               "src/assets/styling/styles.scss"
             ],
             "scripts": []
@@ -94,7 +95,8 @@
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
+              // "./node_modules/reset-css/sass/_reset.scss",
+              // "./node_modules/animate.css/animate.min.css",
               "src/assets/styling/styles.scss"
             ],
             "assets": [

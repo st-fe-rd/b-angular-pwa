@@ -1,26 +1,30 @@
 .popover {
-  background: #F00;
-  padding: 20px;
   position: absolute;
   z-index: 9999;
-  &:before,
-  &:after {
-    content: "";
-    position: absolute;
-    border-style: solid;
-    border-width: 9px 10px 0;
-    display: block;
-  }
   &.b-c {
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
+    .popover-container {
+      &:before,
+      &:after {
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-color: map-get($color, white) transparent;
+      }
+    }
+  }
+  .popover-container {
+    background: map-get($color, white);
+    padding: 20px;
     &:before,
     &:after {
-      top: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      border-color: #F00 transparent;
+      content: "";
+      position: absolute;
+      border-style: solid;
+      border-width: 9px 10px 0;
+      display: block;
     }
   }
 }

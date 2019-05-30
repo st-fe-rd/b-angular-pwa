@@ -3,13 +3,12 @@
   -webkit-overflow-scrolling: touch;
 }
 html, body {
-  background: map-get($color, white);
+  background: map-get($color, grey);
   color: map-get($color, text);
   font-family: map-get($font-family, default);
-  overscroll-behavior: contain;
-  height: 100%;
-  position: relative;
-  overflow: hidden;
+  // height: 100%;
+  // overscroll-behavior: contain;
+  // overflow: hidden;
 }
 h2 {
   font-size: map-get($font-size, lg);
