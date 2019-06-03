@@ -57,7 +57,7 @@ $todoTextLeftAlign: convertPxToRem(60px);
   }
   .todos-footer {
     padding: 10px 15px;
-    height: 40px;
+    height: 50px;
     border-top: 1px solid map-get($color, border);
     display: flex;
     align-items: center;
@@ -167,5 +167,18 @@ $todoTextLeftAlign: convertPxToRem(60px);
   .todos {
     width: 100%;
     margin: 0;
+    left: 0;
+    @include transform(unset);
+    @include box-shadow(unset);
+    .todos-footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      padding: 0;
+      height: auto;
+      &:before {
+        display: none;
+      }
+    }
   }
 }
