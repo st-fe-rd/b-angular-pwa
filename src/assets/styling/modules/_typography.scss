@@ -1,0 +1,14 @@
+.title-art {
+  font-size: 36px;
+  text-align: center;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+  &.insetshadow {
+    color: map-get($color, white);
+    // background-color: #2d2d2d;
+    letter-spacing: .1em;
+    text-shadow: 
+      -1px -1px 1px map-get($color, border), 
+      1px 1px 1px map-get($color, text-secondary),
+  }
+}

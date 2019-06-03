@@ -1,47 +1,38 @@
 // Mixins for build grid
 $grid-columns: 12;
+$grid-gutter: 15px;
 @mixin build-grid($size) {
   @for $i from 1 through $grid-columns {
+    $per: percentage($i / $grid-columns);
     @if $size != '' {
-      .col-#{$size}-#{$i} {
-        width: percentage($i / $grid-columns);
+      .f-col-#{$size}-#{$i} {
+        flex-basis: percentage($i / $grid-columns);
       }
     } @else {
-      .col-#{$i} {
-        width: percentage($i / $grid-columns);
+      .f-col-#{$i} {
+        flex-basis: calc(#{$per} - #{$grid-gutter});
       }
     }
   }
 }
 // End mixins for build grid
-$grid-gutter: 15px;
-$container-width: 500px;
-.container {
-  @extend %clr;
-  // padding-left: $grid-gutter;
-  // padding-right: $grid-gutter;
-  margin: 0 auto;
-  max-width: $container-width;
-}
-.row {
-  @extend %clr;
-  margin-left: -$grid-gutter;
-  margin-right: -$grid-gutter;
+
+.f-row {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  &.f-row-vm {
+    align-items: center;
+  }
   > [class*="col-"] {
-    float: left;
-    padding-left: $grid-gutter;
-    padding-right: $grid-gutter;
+    position: relative;
+    box-sizing: border-box;
   }
 }
 
 // Remove gutters (margin, padding) of row & col
-.row-no-gutters {
-  margin-left: 0;
-  margin-right: 0;
-  > [class*="col-"] {
-    padding-left: 0;
-    padding-right: 0;
-  }
+.f-row-no-gutters {
+  $grid-gutter: 0px;
 }
 
 /* Grid for all screen

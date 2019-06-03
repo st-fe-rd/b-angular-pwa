@@ -1,0 +1,39 @@
+.popover {
+  position: absolute;
+  z-index: 9999;
+  &.wide {
+    width: calc(100% - 20px);
+  }
+  &.b-c {
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    .popover-container {
+      &:before,
+      &:after {
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-color: map-get($color, white) transparent;
+      }
+    }
+  }
+  .popover-container {
+    background: map-get($color, white);
+    padding: 20px;
+    box-shadow: 0px 0px 0px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      border-style: solid;
+      border-width: 9px 10px 0;
+      display: block;
+    }
+  }
+  .popover-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+}

@@ -23,6 +23,7 @@ import { ErrorHandler } from './core/service/api/error-handler';
 import { MatDialogModule } from '@angular/material';
 import { DeviceDetectorModule } from 'ngx-device-detector';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { AddToHomescreenModule } from './shared/partial/add-to-homescreen/add-to-homescreen.module';
 import { environment } from '../environments/environment';
 
 export function createTranslateLoader(http: HttpClient) {
@@ -66,7 +67,8 @@ export function tokenGetter() {
     CoreModule.forRoot(),
     AuthModule,
     FeatureModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    AddToHomescreenModule
   ],
   providers: [
     ErrorHandler

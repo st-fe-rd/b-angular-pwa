@@ -1,9 +1,7 @@
+@import 'node_modules/reset-css/sass/_reset.scss';
+// @import 'node_modules/animate.css/animate.min.css';
 @import 'base/all';
 @import 'modules/all';
 @import 'layout/all';
 @import 'state/all';
 @import 'pages/all';
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
-
-// html, body { height: 100%; }
-// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
