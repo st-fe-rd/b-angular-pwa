@@ -5,18 +5,19 @@
 html, body {
   background: map-get($color, grey);
   color: map-get($color, text);
-  font-family: map-get($font-family, default);
-  // height: 100%;
-  // overscroll-behavior: contain;
-  // overflow: hidden;
+  font-family: $font-family-default;
+  font-size: 12px;
+  @include font-smoothing(antialiased);
 }
 h2 {
   font-size: map-get($font-size, lg);
 }
 h1, h2, h3, h4, h5, h6 {
-  font-family: map-get($font-family, default);
+  font-family: $font-family-default;
   color: map-get($color, text);
   @include pxRem('line-height', 34);
   font-weight: 400;
   @include pxRem('margin', 0 0 15);
+  padding: 0;
+  margin: 0;
 }

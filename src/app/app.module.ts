@@ -67,8 +67,7 @@ export function tokenGetter() {
     CoreModule.forRoot(),
     AuthModule,
     FeatureModule,
-    // ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: true }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     AddToHomescreenModule
   ],
   providers: [

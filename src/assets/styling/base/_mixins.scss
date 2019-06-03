@@ -1,5 +1,7 @@
-// === RESPOND ABOVE ===
-// @include respond-above(small) {}
+/**
+  * RESPONSIVE AREA
+  */
+
 @mixin respond-above($breakpoint) {
   @if map-has-key($breakpoints, $breakpoint) {
     $breakpoint-value: map-get($breakpoints, $breakpoint);
@@ -11,8 +13,6 @@
   }
 }
 
-// === RESPOND BELOW ===
-// @include respond-below(small) {}
 @mixin respond-below($breakpoint) {
   @if map-has-key($breakpoints, $breakpoint) {
     $breakpoint-value: map-get($breakpoints, $breakpoint);
@@ -24,8 +24,6 @@
   }
 }
 
-// === RESPOND BETWEEN ===
-// @include respond-between(small, medium);
 @mixin respond-between($lower, $upper) {
   @if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper) {
     $lower-breakpoint: map-get($breakpoints, $lower);
@@ -43,6 +41,16 @@
   }
 }
 
+@mixin appearance($data) {
+  -webkit-appearance: $data;
+  -moz-appearance: $data;
+  appearance: $data;
+}
+@mixin border-box($border-box) {
+  -webkit-box-sizing: $border-box;
+  -moz-box-sizing: $border-box;
+  box-sizing: $border-box;
+}
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
   -moz-border-radius: $radius;
@@ -53,12 +61,56 @@
   -webkit-box-shadow: $shadow;
   -moz-box-shadow: $shadow;
 }
-@mixin transition($transition) {
-  -webkit-transition: $transition;
-  -moz-transition: $transition;
-  -ms-transition: $transition;
-  -o-transition: $transition;
-  transition: $transition;
+@mixin clearfix() {
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+@mixin flex-wrap($wrap) {
+  -webkit-flex-wrap: $wrap;
+     -moz-flex-wrap: $wrap;
+      -ms-flex-wrap: $wrap;
+          flex-wrap: $wrap;
+}
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+@mixin font-icon($icon) {
+  content: map-get($font-icon, $icon);
+  font-family: map-get($font-family, icon);
+  -webkit-font-smoothing: antialiased;
+}
+@mixin font-smoothing($value: antialiased) {
+  @if $value == antialiased {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
+}
+@mixin opacity($opacity) {
+  -webkit-opacity: $opacity;
+  -moz-opacity: $opacity;
+  opacity: $opacity;
+}
+@mixin placeholder() {
+  ::-webkit-input-placeholder { /* Edge */
+    @content;
+  }
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    @content;
+  }
+  ::placeholder {
+    @content;
+  }
 }
 @mixin transform($value) {
   -ms-transform: $value;
@@ -75,52 +127,20 @@
   -webkit-transform: translateY($transition);
   transform: translateY($transition);
 }
-@mixin opacity($opacity) {
-  -webkit-opacity: $opacity;
-  -moz-opacity: $opacity;
-  opacity: $opacity;
+@mixin transition($transition) {
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  -ms-transition: $transition;
+  -o-transition: $transition;
+  transition: $transition;
 }
-@mixin clearfix() {
-  &::after {
-    display: block;
-    content: "";
-    clear: both;
-  }
-}
-@mixin font-icon($icon) {
-  content: map-get($font-icon, $icon);
-  font-family: map-get($font-family, icon);
-  -webkit-font-smoothing: antialiased;
-}
-@mixin border-box($border-box) {
-  -webkit-box-sizing: $border-box;
-  -moz-box-sizing: $border-box;
-  box-sizing: $border-box;
-}
-
-// Flexbox display
-@mixin flexbox() {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-}
-@mixin flex-wrap($wrap) {
-  -webkit-flex-wrap: $wrap;
-     -moz-flex-wrap: $wrap;
-      -ms-flex-wrap: $wrap;
-          flex-wrap: $wrap;
-}
-
 
 // === CONVERT PXREM ===
-
 @function strip-units($number) {
   @return $number / ($number * 0 + 1);
- }
+}
 
- @function convertRootPxToEm($value) {
+@function convertRootPxToEm($value) {
   // check for null:
   @if($value == null) {
     @return $value;
@@ -132,12 +152,12 @@
   @else {
     @return 0em + strip-units($value)/16;
   }
- }
- @function convertPxToRem($px) {
- @return 0rem + strip-units($px)/16;
- }
+}
+@function convertPxToRem($px) {
+  @return 0rem + strip-units($px)/16;
+}
 
- @mixin pxRem($property,$values) {
+@mixin pxRem($property, $values) {
   // Create a couple of empty lists as output buffers:
   $px-values: ();
   $rem-values: ();
@@ -167,65 +187,5 @@
     // @media only all {
       #{$property}: $rem-values;
     // }
-  }
-}
-// == End / Convert Px To Rem
-
-
-/*Padding*/
-$value : 5;
-
-$sizeList : 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 , 14, 15;
-
-@each $size in $sizeList {
-  .pd-#{$size} {
-    @include pxRem(padding, $value * $size);
-  }
-}
-@each $size in $sizeList {
-  .pl-#{$size} {
-    @include pxRem(padding-left, $value * $size !important);
-  }
-}
-@each $size in $sizeList {
-  .pr-#{$size} {
-    @include pxRem(padding-right, $value * $size);
-  }
-}
-@each $size in $sizeList {
-  .pt-#{$size} {
-    @include pxRem(padding-top, $value * $size);
-  }
-}
-@each $size in $sizeList {
-  .pb-#{$size} {
-    @include pxRem(padding-bottom, $value * $size !important);
-  }
-}
-
-/*Margin*/
-@each $size in $sizeList {
-  .mg-#{$size} {
-    @include pxRem(margin, $value * $size);
-  }
-}
-@each $size in $sizeList {
-  .mt-#{$size} {
-    @include pxRem(margin-top, $value * $size);
-  }
-}
-@each $size in $sizeList {
-  .ml-#{$size} {
-    @include pxRem(margin-left, $value * $size !important);
-  }
-}
-@each $size in $sizeList {
-  .mb-#{$size} {
-    @include pxRem(margin-bottom, $value * $size);
-  }
-}
-@each $size in $sizeList {
-  .mr-#{$size} {
-    @include pxRem(margin-right, $value * $size);
   }
 }
