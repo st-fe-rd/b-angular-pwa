@@ -1,0 +1,3 @@
+<app-todos-header (todo)='addNewTodo($event)'></app-todos-header>
+<app-todos-main [allTodos]='allTodos | filterTodo:action' (flag)='check()' (deletedTodo)='deleteTodo($event)'></app-todos-main>
+<app-todos-footer (action)='handleAction($event)' [itemLeft]='allTodos | itemLeft:flag'></app-todos-footer> 

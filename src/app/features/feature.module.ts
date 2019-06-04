@@ -9,6 +9,12 @@ import { DialogModule } from '../shared/partial/dialog/dialog.module';
 import { UsersService } from '../core/service/users/users.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'app/shared/module/shared.module';
+import { TodosComponent } from './todos/todos.component';
+import { TodosHeaderComponent } from './todos/todos-header/todos-header.component';
+import { TodosFooterComponent } from './todos/todos-footer/todos-footer.component';
+import { TodosMainComponent } from './todos/todos-main/todos-main.component';
+import { FilterTodoPipe } from './todos/filter-todo.pipe';
+import { ItemLeftPipe } from './todos/item-left.pipe';
 
 
 @NgModule({
@@ -23,7 +29,13 @@ import { SharedModule } from 'app/shared/module/shared.module';
     ReactiveFormsModule,
   ],
   declarations: [
-    FeatureComponent
+    FeatureComponent,
+    TodosComponent,
+    TodosHeaderComponent,
+    TodosFooterComponent,
+    TodosMainComponent,
+    FilterTodoPipe,
+    ItemLeftPipe
   ],
   providers: [
     UsersService
