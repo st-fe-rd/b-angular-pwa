@@ -4,7 +4,6 @@ import { Todo } from '../Todo.model';
 @Component({
   selector: 'app-todos-header',
   templateUrl: './todos-header.component.html',
-  styleUrls: ['./todos-header.component.scss']
 })
 export class TodosHeaderComponent implements OnInit {
 

@@ -4,11 +4,11 @@
       <div class="R2I1d">
         <input  type="checkbox" 
                 class="item-check" 
-                [checked]="todo.check"
+                [checked]="todo.isCompleted"
                 name="{{ todo.id }}" 
                 id="{{ todo.id }}" 
-                (click)="checkTodo(todo)">
-        <label>{{todo.content}}</label>
+                (click)="markAsCompleted(todo)">
+        <label>{{todo.name}}</label>
         <button class="_6oXTL" (click)="deleteTodo(todo)"></button></div>
     </li>
   </ul>

@@ -8,41 +8,32 @@ import { Todo } from './Todo.model';
 })
 export class TodosComponent implements OnInit { 
 
-  allTodos: Todo[];
+  todos: Todo[];
   action: String;
-  itemLeft: Number;
 
   constructor() {}
 
   ngOnInit() {
     this.action = 'all';
-    this.getDefaultTodo();
-    this.check();
-  }
-
-  // Add a default Todo
-  getDefaultTodo() {
-    this.allTodos = [new Todo('Use Redux')];
+    this.todos = [new Todo('Use Redux')];
   }
 
   addNewTodo(todo: Todo) {
-    this.allTodos = [todo,...this.allTodos];
-    this.check();
+    this.todos = [todo,...this.todos];
   }
 
   deleteTodo(todo: Todo) {
-    this.allTodos = this.allTodos.filter(event => event.id !== todo.id);
-    this.check();
+    this.todos = this.todos.filter(event => event.id !== todo.id);
   }
 
-  // Change flag whenever an item is checked
-  check() {
-    this.itemLeft = this.allTodos.filter(event => !event.check).length;
+  // Return length of array active todo
+  countActiveTodos() {
+    return this.todos.filter(event => !event.isCompleted).length;
   }
 
   // Change this.action whenever a button in footer is clicked
   handleAction(action: String) {
-    action === 'clearCompleted' ? this.allTodos = this.allTodos.filter(event => !event.check) : this.action = action;
+    action === 'clearCompleted' ? this.todos = this.todos.filter(event => !event.isCompleted) : this.action = action;
   }
 
 }
