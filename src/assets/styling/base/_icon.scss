@@ -1,17 +1,17 @@
 @font-face {
-  font-family: "iconos";
-  src:  url("../fonts/iconos/iconos.eot?7et4lb");
-  src:  url("../fonts/iconos/iconos.eot?7et4lb#iefix") format("embedded-opentype"),
-    url("../fonts/iconos/iconos.ttf?7et4lb") format("truetype"),
-    url("../fonts/iconos/iconos.woff?7et4lb") format("woff"),
-    url("../fonts/iconos/iconos.svg?7et4lb#iconos") format("svg");
+  font-family: "ipwa";
+  src:  url("../fonts/ipwa/ipwa.eot?5gk46f");
+  src:  url("../fonts/ipwa/ipwa.eot?5gk46f#iefix") format("embedded-opentype"),
+    url("../fonts/ipwa/ipwa.ttf?5gk46f") format("truetype"),
+    url("../fonts/ipwa/ipwa.woff?5gk46f") format("woff"),
+    url("../fonts/ipwa/ipwa.svg?5gk46f#ipwa") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 
 [class^="i-"], [class*=" i-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: "iconos" !important;
+  font-family: "ipwa" !important;
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -27,9 +27,46 @@
 .i-ios-action:before {
   content: "\e900";
 }
-.i-ios-create:before {
+.i-task-done:before {
   content: "\e901";
 }
-.i-ios-add:before {
+.i-task-edit:before {
   content: "\e902";
+}
+.i-tasks:before {
+  content: "\e903";
+}
+.i-task-search:before {
+  content: "\e904";
+}
+.i-task-detail:before {
+  content: "\e905";
+}
+.i-tasks-closing:before {
+  content: "\e906";
+}
+.i-tasks-done:before {
+  content: "\e907";
+}
+.i-clean-filter:before {
+  content: "\e908";
+}
+.i-close:before {
+  content: "\e909";
+}
+.i-save-1:before {
+  content: "\e90a";
+  color: #4c4c4c;
+}
+.i-uncheck:before {
+  content: "\e90b";
+}
+.i-check:before {
+  content: "\e90c";
+}
+.i-save:before {
+  content: "\f0c7";
+}
+.i-plus:before {
+  content: "\f0fe";
 }
