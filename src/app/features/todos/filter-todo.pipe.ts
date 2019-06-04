@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Todo } from './Todo';
+import { Todo } from './Todo.model';
 
 @Pipe({
   name: 'filterTodo'
@@ -7,14 +7,12 @@ import { Todo } from './Todo';
 export class FilterTodoPipe implements PipeTransform {
 
   transform(allTodos: Todo[], action: String): Todo[] {
-    let displayTodos: Todo[];
     switch(action) {
-      case '1': displayTodos = [...allTodos]; break;
-      case '2': displayTodos = allTodos.filter(event => !event.check); break;
-      case '3': displayTodos = allTodos.filter(event => event.check); break;
-      default: break;
+      case 'all': return [...allTodos]; 
+      case 'active': return allTodos.filter(event => !event.check); 
+      case 'completed': return allTodos.filter(event => event.check);
+      default: return [];
     }
-    return displayTodos;
   }
 
 }

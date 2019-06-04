@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Todo } from '../Todo';
+import { Todo } from '../Todo.model';
 
 @Component({
   selector: 'app-todos-header',
@@ -17,15 +17,12 @@ export class TodosHeaderComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.addNewTodo();
   }
 
-  async addNewTodo() {
+  submitNewTodo() {
     this.newTodo.id = new Date().getTime();
-    await this.todo.emit(this.newTodo);
+    this.todo.emit(this.newTodo);
     this.newTodo = new Todo();
-    console.log(this.newTodo);
-    
   }
 
 }

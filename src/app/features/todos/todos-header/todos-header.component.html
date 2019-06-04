@@ -1,3 +1,8 @@
 <header class="todos-header">
-  <input class="_1LCq9" type="text" [(ngModel)]='newTodo.content' (keyup.enter)='addNewTodo()' placeholder="What needs to be done?" value="">
+  <input  class="_1LCq9" 
+          type="text" 
+          [(ngModel)]="newTodo.content" 
+          (keyup.enter)="submitNewTodo()" 
+          placeholder="What needs to be done?" 
+          value="">
 </header>

@@ -14,8 +14,6 @@ import { TodosHeaderComponent } from './todos/todos-header/todos-header.componen
 import { TodosFooterComponent } from './todos/todos-footer/todos-footer.component';
 import { TodosMainComponent } from './todos/todos-main/todos-main.component';
 import { FilterTodoPipe } from './todos/filter-todo.pipe';
-import { ItemLeftPipe } from './todos/item-left.pipe';
-
 
 @NgModule({
   imports: [
@@ -35,7 +33,6 @@ import { ItemLeftPipe } from './todos/item-left.pipe';
     TodosFooterComponent,
     TodosMainComponent,
     FilterTodoPipe,
-    ItemLeftPipe
   ],
   providers: [
     UsersService

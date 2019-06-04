@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Todo } from './Todo';
+import { Todo } from './Todo.model';
 
 @Component({
   selector: 'app-todos',
@@ -10,13 +10,14 @@ export class TodosComponent implements OnInit {
 
   allTodos: Todo[];
   action: String;
-  flag: Boolean;
+  itemLeft: Number;
 
   constructor() {}
 
   ngOnInit() {
-    this.action = '1';
+    this.action = 'all';
     this.getDefaultTodo();
+    this.check();
   }
 
   // Add a default Todo
@@ -26,20 +27,22 @@ export class TodosComponent implements OnInit {
 
   addNewTodo(todo: Todo) {
     this.allTodos = [todo,...this.allTodos];
+    this.check();
   }
 
   deleteTodo(todo: Todo) {
     this.allTodos = this.allTodos.filter(event => event.id !== todo.id);
+    this.check();
   }
 
   // Change flag whenever an item is checked
   check() {
-    this.flag = !this.flag;
+    this.itemLeft = this.allTodos.filter(event => !event.check).length;
   }
 
   // Change this.action whenever a button in footer is clicked
   handleAction(action: String) {
-    action === '4' ? this.allTodos = this.allTodos.filter(event => !event.check) : this.action = action;
+    action === 'clearCompleted' ? this.allTodos = this.allTodos.filter(event => !event.check) : this.action = action;
   }
 
 }
