@@ -8,7 +8,6 @@ import { Todo } from 'app/shared/model/todo/todo.model';
 export class TodosHeaderComponent implements OnInit {
 
   @Output() todo: EventEmitter<Todo> = new EventEmitter();
-
   taskName: string;
 
   constructor() {
@@ -18,7 +17,7 @@ export class TodosHeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-  submitNewTodo() {
+  onSubmit() {
     if (this.taskName !== '') {
       this.todo.emit(new Todo(this.taskName));
     }

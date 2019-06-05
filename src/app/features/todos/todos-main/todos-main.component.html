@@ -1,15 +1,15 @@
 <section class="todos-main">
-  <ul class="todo-list" *ngFor="let todo of allTodos">
+  <ul class="todo-list" *ngFor="let todo of todos">
     <li class="todo-item">
       <div class="R2I1d">
         <input  type="checkbox" 
                 class="item-check" 
+                id="item-{{ todo.id }}"
                 [checked]="todo.isCompleted"
-                name="{{ todo.id }}" 
-                id="{{ todo.id }}" 
-                (click)="markAsCompleted(todo)">
+                (click)="toggleCompleted(todo)">
         <label>{{todo.name}}</label>
-        <button class="_6oXTL" (click)="deleteTodo(todo)"></button></div>
+        <button class="_6oXTL" (click)="deleteTodo(todo)"></button>
+      </div>
     </li>
   </ul>
 </section> 

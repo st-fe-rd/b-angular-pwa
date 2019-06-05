@@ -7,7 +7,7 @@ import { Todo } from 'app/shared/model/todo/todo.model';
 })
 export class TodosMainComponent implements OnInit {
 
-  @Input() allTodos: Todo[];
+  @Input() todos: Todo[];
   @Output() deletedTodo: EventEmitter<Todo> = new EventEmitter();
 
   constructor() { }
@@ -15,7 +15,7 @@ export class TodosMainComponent implements OnInit {
   ngOnInit() {
   }
 
-  markAsCompleted(todo) {
+  toggleCompleted(todo) {
     todo.isCompleted = !todo.isCompleted;
   }
 
