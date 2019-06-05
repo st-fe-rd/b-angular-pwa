@@ -9,7 +9,11 @@ import { DialogModule } from '../shared/partial/dialog/dialog.module';
 import { UsersService } from '../core/service/users/users.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'app/shared/module/shared.module';
-
+import { TodosComponent } from './todos/todos.component';
+import { TodosHeaderComponent } from './todos/todos-header/todos-header.component';
+import { TodosFooterComponent } from './todos/todos-footer/todos-footer.component';
+import { TodoItemComponent } from './todos/todo-item/todo-item.component';
+import { TodoFilterPipe } from 'app/shared/pipe/filter/todo-filter.pipe';
 
 @NgModule({
   imports: [
@@ -20,10 +24,15 @@ import { SharedModule } from 'app/shared/module/shared.module';
     FooterModule,
     DialogModule,
     SharedModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
-    FeatureComponent
+    FeatureComponent,
+    TodosComponent,
+    TodosHeaderComponent,
+    TodosFooterComponent,
+    TodoItemComponent,
+    TodoFilterPipe
   ],
   providers: [
     UsersService

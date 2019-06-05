@@ -152,7 +152,6 @@ $todoTextLeftAlign: convertPxToRem(60px);
     left: 15px;
     margin: auto 0;
     border: 1px solid map-get($color, border);
-    @include appearance(none);
     &:after {
       content: ""
     }

@@ -5,6 +5,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0",
+    "deploy": "websync --invalidateDeletes --yes",
+    "deployfirebase": "npm run build && firebase deploy",
     "build": "ng build --prod --aot",
     "build.stg": "ng build --configuration staging",
     "build.prod": "ng build --configuration production",
