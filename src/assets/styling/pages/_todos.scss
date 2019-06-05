@@ -56,6 +56,7 @@ $todoTextLeftAlign: convertPxToRem(60px);
     border-top: 1px solid map-get($color, border);
   }
   .todos-footer {
+    position: relative;
     padding: 10px 15px;
     height: 50px;
     border-top: 1px solid map-get($color, border);
@@ -83,6 +84,8 @@ $todoTextLeftAlign: convertPxToRem(60px);
       .toolbar-item {
         flex: 1 0;
         text-align: center;
+        position: relative;
+        z-index: 1;
         // &.cleaner {
         //   flex: 2 0;
         // }
@@ -144,16 +147,30 @@ $todoTextLeftAlign: convertPxToRem(60px);
   }
   .item-check {
     text-align: center;
-    width: convertPxToRem(24px);
-    height: convertPxToRem(24px);
+    width: convertPxToRem(32px);
+    height: convertPxToRem(32px);
     position: absolute;
     top: 0;
     bottom: 0;
     left: 15px;
     margin: auto 0;
-    border: 1px solid map-get($color, border);
+    border: none;
+    @include appearance(none);
+    &:checked {
+      &:after {
+        color: map-get($color, primary);
+        content: "\e90c";
+      }
+    }
     &:after {
-      content: ""
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
+      font-size: convertPxToRem(32px);
+      display: block;
+      font-family: "ipwa";
+      content: "\e90b";
     }
   }
 }
@@ -182,7 +199,9 @@ $todoTextLeftAlign: convertPxToRem(60px);
     @include transform(unset);
     @include box-shadow(unset);
     .todos-footer {
+      background: map-get($color, white);
       position: fixed;
+      z-index: 9999;
       bottom: 0;
       width: 100%;
       padding: convertPxToRem(8px) convertPxToRem(15px);

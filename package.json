@@ -1,12 +1,11 @@
 {
-  "name": "revamp-frontend",
-  "version": "0.0.0",
+  "name": "fua-pwa",
+  "version": "1.0.0-alpha",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0",
-    "deploy": "websync --invalidateDeletes --yes",
-    "deployfirebase": "npm run build && firebase deploy",
+    "deploy": "npm run build && firebase deploy",
     "build": "ng build --prod --aot",
     "build.stg": "ng build --configuration staging",
     "build.prod": "ng build --configuration production",
@@ -66,7 +65,6 @@
     "rxjs-compat": "^6.5.2",
     "ts-node": "~8.2.0",
     "tslint": "^5.17.0",
-    "typescript": "3.4.5",
-    "websync": "0.0.13"
+    "typescript": "3.4.5"
   }
 }

@@ -1,11 +1,31 @@
 <footer class="todos-footer">
-  <span class="todos-footer-col actor">
-    <button class="guardian" [disabled]="!counter.completed" (click)="onFinish()">Clear completed</button>
-  </span>
-  <ul class="todos-footer-col filter">
-    <li><button class="_2VhED" (click)="onFilter('all')">All</button></li>
-    <li><button class="_2VhED" (click)="onFilter('active')">Active</button></li>
-    <li><button class="_2VhED" (click)="onFilter('completed')">Completed</button></li>
+  <ul class="todos-footer-toolbar">	
+    <li class="toolbar-item cleaner">	
+      <button class="guardian" [disabled]="!counter.completed" (click)="onFinish()">
+          <i class="i-tasks-closing"></i>
+          Clear completed
+      </button>
+    </li>	
+    <li class="toolbar-item">	
+      <button class="_2VhED" (click)="onFilter('all')">	
+        <i class="i-clean-filter"></i>	
+        All Tasks	
+      </button>	
+    </li>	
+    <li class="toolbar-item">	
+      <button class="_2VhED" (click)="onFilter('active')">	
+        <i class="i-tasks"></i>	
+        Active	
+      </button>	
+    </li>	
+    <li class="toolbar-item">	
+      <button class="_2VhED" (click)="onFilter('completed')">	
+        <i class="i-tasks-done"></i>	
+        Completed	
+      </button>	
+    </li>	
+    <li class="toolbar-item counter">	
+      <strong class="n-counter">{{ counter.active }}</strong> items left	
+    </li>	
   </ul>
-  <span class="todos-footer-col counter"><strong>{{ counter.active }}</strong> items left</span>
 </footer>
