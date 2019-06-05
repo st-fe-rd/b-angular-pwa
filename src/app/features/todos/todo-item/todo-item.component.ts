@@ -15,11 +15,11 @@ export class TodoItemComponent implements OnInit {
   ngOnInit() {
   }
 
-  toggleCompleted() {
+  onToggle() {
     this.todo.isCompleted = !this.todo.isCompleted;
   }
 
-  onDelete(todo) {
+  onDelete() {
     this.deleteMe.emit(this.todo);
   }
 }

@@ -22,16 +22,16 @@ export class TodosComponent implements OnInit {
   }
 
   deleteTodo(todo: Todo) {
-    this.todos = this.todos.filter(event => event.id !== todo.id);
+    this.todos = this.todos.filter(item => item.id !== todo.id);
   }
 
   // Return length of array active todo
   countActiveTodos() {
-    return this.todos.filter(event => !event.isCompleted).length;
+    return this.todos.filter(item => !item.isCompleted).length;
   }
 
   // Change this.action whenever a button in footer is clicked
   handleAction(action: String) {
-    action === 'clearCompleted' ? this.todos = this.todos.filter(event => !event.isCompleted) : this.action = action;
+    action === 'clearCompleted' ? this.todos = this.todos.filter(item => !item.isCompleted) : this.action = action;
   }
 }
