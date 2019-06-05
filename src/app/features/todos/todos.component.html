@@ -3,8 +3,9 @@
   <ul class="todo-list">
     <app-todo-item *ngFor="let todo of todos | todoFilter:action;"
                   [todo]="todo"
-                  (deleteMe)="onChange('delete', $event)">
+                  (deleteMe)="onChange('delete', $event)"
+                  (toggleMe)="onChange()">
     </app-todo-item>
   </ul>
 </section> 
-<app-todos-footer (finish)="onChange('finish')" (filter)="action = $event"></app-todos-footer> 
+<app-todos-footer (finish)="onChange('finish')" (filter)="action = $event" [counter]="counter"></app-todos-footer> 

@@ -9,6 +9,7 @@ export class TodoItemComponent implements OnInit {
 
   @Input() todo: Todo;
   @Output() deleteMe: EventEmitter<Todo> = new EventEmitter();
+  @Output() toggleMe: EventEmitter<Todo> = new EventEmitter();
 
   constructor() { }
 
@@ -17,6 +18,7 @@ export class TodoItemComponent implements OnInit {
 
   onToggle() {
     this.todo.isCompleted = !this.todo.isCompleted;
+    this.toggleMe.emit();
   }
 
   onDelete() {

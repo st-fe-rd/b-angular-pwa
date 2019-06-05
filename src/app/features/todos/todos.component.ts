@@ -9,19 +9,26 @@ export class TodosComponent implements OnInit {
 
   todos: Todo[];
   action: String;
+  counter: any;
 
   constructor() {}
 
   ngOnInit() {
     this.action = 'all';
     this.todos = [];
+    this.counter = {};
   }
 
   onChange(action: string, todo: Todo) {
     switch (action) {
       case 'add': this.todos = [todo, ...this.todos]; break
       case 'delete': this.todos = this.todos.filter(item => item.id !== todo.id); break
-      default: this.todos = this.todos.filter(item => !item.isCompleted);
+      case 'finish': this.todos = this.todos.filter(item => !item.isCompleted); break
+      default: break;
     }
+    this.counter = this.todos.reduce((obj, item: Todo) => {
+      item.isCompleted ? obj.completed++ : obj.active++;
+      return obj;
+    }, { active: 0, completed: 0 });
   }
 }

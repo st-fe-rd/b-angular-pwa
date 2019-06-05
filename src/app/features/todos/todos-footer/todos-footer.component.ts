@@ -7,7 +7,7 @@ import { finished } from 'stream';
 })
 export class TodosFooterComponent implements OnInit {
 
-  @Input() activeItems: number;
+  @Input() counter: any;
   @Output() filter: EventEmitter<string> = new EventEmitter();
   @Output() finish: EventEmitter<string> = new EventEmitter();
 
