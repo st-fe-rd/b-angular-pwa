@@ -13,7 +13,7 @@ import { TodosComponent } from './todos/todos.component';
 import { TodosHeaderComponent } from './todos/todos-header/todos-header.component';
 import { TodosFooterComponent } from './todos/todos-footer/todos-footer.component';
 import { TodosMainComponent } from './todos/todos-main/todos-main.component';
-import { FilterTodoPipe } from './todos/filter-todo.pipe';
+import { TodoFilterPipe } from 'app/shared/pipe/filter/todo-filter.pipe';
 
 @NgModule({
   imports: [
@@ -24,7 +24,7 @@ import { FilterTodoPipe } from './todos/filter-todo.pipe';
     FooterModule,
     DialogModule,
     SharedModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     FeatureComponent,
@@ -32,7 +32,7 @@ import { FilterTodoPipe } from './todos/filter-todo.pipe';
     TodosHeaderComponent,
     TodosFooterComponent,
     TodosMainComponent,
-    FilterTodoPipe,
+    TodoFilterPipe
   ],
   providers: [
     UsersService

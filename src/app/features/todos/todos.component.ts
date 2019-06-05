@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Todo } from './Todo.model';
+import { Todo } from 'app/shared/model/todo/todo.model';
 
 @Component({
   selector: 'app-todos',
-  templateUrl: './todos.component.html',
-  styleUrls: ['./todos.component.scss']
+  templateUrl: './todos.component.html'
 })
 export class TodosComponent implements OnInit {
 
@@ -18,8 +17,7 @@ export class TodosComponent implements OnInit {
     this.todos = [];
   }
 
-  addNewTodo(todo: Todo) {
-    console.log('adding...');
+  addTodo(todo: Todo) {
     this.todos = [todo, ...this.todos];
   }
 
