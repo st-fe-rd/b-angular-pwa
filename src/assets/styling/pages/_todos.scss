@@ -89,7 +89,7 @@ $todoTextLeftAlign: convertPxToRem(60px);
         // &.cleaner {
         //   flex: 2 0;
         // }
-        ._2VhED {
+        .toolbar-btn {
           border: 1px solid transparent;
           border-radius: 3px;
           padding: 3px 8px;
@@ -201,7 +201,7 @@ $todoTextLeftAlign: convertPxToRem(60px);
     .todos-footer {
       background: map-get($color, white);
       position: fixed;
-      z-index: 9999;
+      z-index: 9000;
       bottom: 0;
       width: 100%;
       padding: convertPxToRem(8px) convertPxToRem(15px);
@@ -217,7 +217,7 @@ $todoTextLeftAlign: convertPxToRem(60px);
             display: block;
             font-size: convertPxToRem(24px);
           }
-          ._2VhED {
+          .toolbar-btn {
             border: none;
             padding: 0;
             &.active {
