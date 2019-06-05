@@ -1,7 +1,7 @@
 <header class="todos-header">
   <input  class="_1LCq9" 
-          [(ngModel)]="newTodo.name" 
-          (keyup.enter)="submitNewTodo()" 
+          [(ngModel)]="taskName" 
+          (keydown.enter)="submitNewTodo()" 
           placeholder="What needs to be done?" 
           value="">
 </header>

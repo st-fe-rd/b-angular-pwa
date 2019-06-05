@@ -9,19 +9,19 @@ export class TodosHeaderComponent implements OnInit {
 
   @Output() todo: EventEmitter<Todo> = new EventEmitter();
 
-  newTodo: Todo;
+  taskName: string;
 
   constructor() {
-    this.newTodo = new Todo();
+    this.taskName = '';
   }
 
   ngOnInit() {
   }
 
   submitNewTodo() {
-    this.newTodo.id = new Date().getTime();
-    this.todo.emit(this.newTodo);
-    this.newTodo = new Todo();
+    if (this.taskName !== '') {
+      this.todo.emit(new Todo(this.taskName));
+    }
+    this.taskName = '';
   }
-
 }

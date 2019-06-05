@@ -15,10 +15,11 @@ export class TodosComponent implements OnInit {
 
   ngOnInit() {
     this.action = 'all';
-    this.todos = [new Todo('Use Redux')];
+    this.todos = [];
   }
 
   addNewTodo(todo: Todo) {
+    console.log('adding...');
     this.todos = [todo, ...this.todos];
   }
 
