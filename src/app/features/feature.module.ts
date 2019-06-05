@@ -12,7 +12,7 @@ import { SharedModule } from 'app/shared/module/shared.module';
 import { TodosComponent } from './todos/todos.component';
 import { TodosHeaderComponent } from './todos/todos-header/todos-header.component';
 import { TodosFooterComponent } from './todos/todos-footer/todos-footer.component';
-import { TodosMainComponent } from './todos/todos-main/todos-main.component';
+import { TodoItemComponent } from './todos/todo-item/todo-item.component';
 import { TodoFilterPipe } from 'app/shared/pipe/filter/todo-filter.pipe';
 
 @NgModule({
@@ -31,7 +31,7 @@ import { TodoFilterPipe } from 'app/shared/pipe/filter/todo-filter.pipe';
     TodosComponent,
     TodosHeaderComponent,
     TodosFooterComponent,
-    TodosMainComponent,
+    TodoItemComponent,
     TodoFilterPipe
   ],
   providers: [
