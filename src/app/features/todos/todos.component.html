@@ -1,3 +1,7 @@
-<app-todos-header (todo)="addTodo($event)"></app-todos-header>
-<app-todos-main [todos]="todos | todoFilter:action" (deletedTodo)="deleteTodo($event)"></app-todos-main>
-<app-todos-footer (action)="handleAction($event)" [itemLeft]="countActiveTodos()"></app-todos-footer> 
+<app-todos-header (addTodo)="addTodo($event)"></app-todos-header>
+<app-todos-main [todos]="todos | todoFilter:action"
+                (deletedTodo)="deleteTodo($event)">
+</app-todos-main>
+<app-todos-footer (action)="handleAction($event)"
+                  [itemLeft]="countActiveTodos()">
+</app-todos-footer> 

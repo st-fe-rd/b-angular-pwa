@@ -7,7 +7,7 @@ import { Todo } from 'app/shared/model/todo/todo.model';
 })
 export class TodosHeaderComponent implements OnInit {
 
-  @Output() behavior: EventEmitter<Todo> = new EventEmitter();
+  @Output() addTodo: EventEmitter<Todo> = new EventEmitter();
   taskName: string;
 
   constructor() {
@@ -19,7 +19,7 @@ export class TodosHeaderComponent implements OnInit {
 
   onSubmit() {
     if (this.taskName !== '') {
-      this.behavior.emit(new Todo(this.taskName));
+      this.addTodo.emit(new Todo(this.taskName));
     }
     this.taskName = '';
   }

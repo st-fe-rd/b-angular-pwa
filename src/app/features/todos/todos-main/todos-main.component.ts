@@ -8,7 +8,7 @@ import { Todo } from 'app/shared/model/todo/todo.model';
 export class TodosMainComponent implements OnInit {
 
   @Input() todos: Todo[];
-  @Output() behavior: EventEmitter<Todo> = new EventEmitter();
+  @Output() deleteTodo: EventEmitter<Todo> = new EventEmitter();
 
   constructor() { }
 
@@ -19,7 +19,7 @@ export class TodosMainComponent implements OnInit {
     todo.isCompleted = !todo.isCompleted;
   }
 
-  deleteTodo(todo) {
-    this.behavior.emit(todo);
+  onDelete(todo) {
+    this.deleteTodo.emit(todo);
   }
 }

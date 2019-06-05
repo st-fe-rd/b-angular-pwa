@@ -7,7 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class TodosFooterComponent implements OnInit {
 
   @Input() itemLeft: Number;
-  @Output() behavior: EventEmitter<Number> = new EventEmitter();
+  @Output() action: EventEmitter<Number> = new EventEmitter();
 
   constructor() { }
 
@@ -15,6 +15,6 @@ export class TodosFooterComponent implements OnInit {
   }
 
   handleFilter(event) {
-    this.behavior.emit(event.target.id);
+    this.action.emit(event.target.id);
   }
 }
