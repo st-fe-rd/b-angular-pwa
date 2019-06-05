@@ -22,5 +22,4 @@ export class TodosMainComponent implements OnInit {
   deleteTodo(todo) {
     this.deletedTodo.emit(todo);
   }
-  
 }

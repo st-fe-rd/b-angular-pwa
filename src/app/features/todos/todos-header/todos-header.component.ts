@@ -13,7 +13,7 @@ export class TodosHeaderComponent implements OnInit {
 
   constructor() {
     this.newTodo = new Todo();
-   }
+  }
 
   ngOnInit() {
   }

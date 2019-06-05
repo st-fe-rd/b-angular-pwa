@@ -6,7 +6,7 @@ import { Todo } from './Todo.model';
   templateUrl: './todos.component.html',
   styleUrls: ['./todos.component.scss']
 })
-export class TodosComponent implements OnInit { 
+export class TodosComponent implements OnInit {
 
   todos: Todo[];
   action: String;
@@ -19,7 +19,7 @@ export class TodosComponent implements OnInit {
   }
 
   addNewTodo(todo: Todo) {
-    this.todos = [todo,...this.todos];
+    this.todos = [todo, ...this.todos];
   }
 
   deleteTodo(todo: Todo) {
@@ -35,5 +35,4 @@ export class TodosComponent implements OnInit {
   handleAction(action: String) {
     action === 'clearCompleted' ? this.todos = this.todos.filter(event => !event.isCompleted) : this.action = action;
   }
-
 }
