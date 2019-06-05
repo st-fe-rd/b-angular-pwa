@@ -1,10 +1,10 @@
-<app-todos-header (addTodo)="addTodo($event)"></app-todos-header>
+<app-todos-header (addTodo)="onChange('add', $event)"></app-todos-header>
 <section class="todos-main">
   <ul class="todo-list">
-    <app-todo-item *ngFor="let todo of todos | todoFilter:action"
+    <app-todo-item *ngFor="let todo of todos | todoFilter:action;"
                   [todo]="todo"
-                  (deleteMe)="deleteTodo($event)">
+                  (deleteMe)="onChange('delete', $event)">
     </app-todo-item>
   </ul>
 </section> 
-<app-todos-footer [itemLeft]="countActiveTodos()" (action)="handleAction($event)"></app-todos-footer> 
+<app-todos-footer (finish)="onChange('finish')" (filter)="action = $event"></app-todos-footer> 

@@ -17,21 +17,11 @@ export class TodosComponent implements OnInit {
     this.todos = [];
   }
 
-  addTodo(todo: Todo) {
-    this.todos = [todo, ...this.todos];
-  }
-
-  deleteTodo(todo: Todo) {
-    this.todos = this.todos.filter(item => item.id !== todo.id);
-  }
-
-  // Return length of array active todo
-  countActiveTodos() {
-    return this.todos.filter(item => !item.isCompleted).length;
-  }
-
-  // Change this.action whenever a button in footer is clicked
-  handleAction(action: String) {
-    action === 'clearCompleted' ? this.todos = this.todos.filter(item => !item.isCompleted) : this.action = action;
+  onChange(action: string, todo: Todo) {
+    switch (action) {
+      case 'add': this.todos = [todo, ...this.todos]; break
+      case 'delete': this.todos = this.todos.filter(item => item.id !== todo.id); break
+      default: this.todos = this.todos.filter(item => !item.isCompleted);
+    }
   }
 }

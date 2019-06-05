@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { finished } from 'stream';
 
 @Component({
   selector: 'app-todos-footer',
@@ -6,15 +7,20 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class TodosFooterComponent implements OnInit {
 
-  @Input() itemLeft: Number;
-  @Output() action: EventEmitter<Number> = new EventEmitter();
+  @Input() activeItems: number;
+  @Output() filter: EventEmitter<string> = new EventEmitter();
+  @Output() finish: EventEmitter<string> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  handleFilter(event) {
-    this.action.emit(event.target.id);
+  onFinish() {
+    this.finish.emit();
+  }
+
+  onFilter(type: string) {
+    this.filter.emit(type);
   }
 }
