@@ -4,4 +4,5 @@
           (keydown.enter)="onSubmit()" 
           placeholder="What needs to be done?" 
           value="">
+  <button class="new-task mobile-only" *ngIf="taskName" (click)="onSubmit()"><i class="i-plus"></i></button>	
 </header>
