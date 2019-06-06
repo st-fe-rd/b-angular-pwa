@@ -7,17 +7,21 @@ button {
   vertical-align: baseline;
   @include appearance(none);
   @include font-smoothing(antialiased);
+  &:disabled {
+    color: map-get($color, text-muted);
+  }
 }
 button,
 input,
 input[type='checkbox'] {
+  background: none;
   outline: none;
   color: inherit;
   font-family: inherit;
 }
 @include placeholder() {
-  color: map-get($color, text-muted)
-};
+  color: map-get($color, text-muted);
+}
 .task-name {
   position: relative;
   margin: 0;
@@ -120,11 +124,12 @@ $todoTextLeftAlign: convertPxToRem(60px);
       position: relative;
       font-size: convertPxToRem(24px);
       border-bottom: 1px solid map-get($color, border);
+      user-select: none;
       &:last-child {
         border-bottom: none;
       }
       &:hover {
-        ._6oXTL {
+        .close-item {
           display: block;
         }
       }
@@ -137,7 +142,7 @@ $todoTextLeftAlign: convertPxToRem(60px);
         line-height: 1.2;
         @include transition(color 0.4s);
       }
-      ._6oXTL {
+      .close-item {
         display: none;
         position: absolute;
         top: 0;
@@ -148,7 +153,8 @@ $todoTextLeftAlign: convertPxToRem(60px);
         color: $todoPrimary;
         transition: color 0.2s ease-out;
         &:after {
-          content: "\D7";
+          font-family: "ipwa";
+          content: "\e909";
         }
       }
     }
@@ -179,6 +185,7 @@ $todoTextLeftAlign: convertPxToRem(60px);
       display: block;
       font-family: "ipwa";
       content: "\f096";
+      color: map-get($color, text-muted);
     }
   }
 }
@@ -191,10 +198,10 @@ $todoTextLeftAlign: convertPxToRem(60px);
         flex: 2 0 !important;
       }
       &.cleaner {
-        text-align: left !important;;
+        text-align: right !important;;
       }
       &.counter {
-        text-align: right !important;;
+        text-align: left !important;;
       }
     }
   }

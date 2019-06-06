@@ -15,7 +15,7 @@ export class TodosComponent implements OnInit {
 
   ngOnInit() {
     this.action = 'all';
-    this.todos = [new Todo('hello')];
+    this.todos = [];
     this.counter = {
       active: 0
     };
