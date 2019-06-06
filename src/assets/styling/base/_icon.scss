@@ -56,7 +56,6 @@
 }
 .i-save-1:before {
   content: "\e90a";
-  color: #4c4c4c;
 }
 .i-uncheck:before {
   content: "\e90b";
@@ -64,8 +63,26 @@
 .i-check:before {
   content: "\e90c";
 }
+.i-check-square-o:before {
+  content: "\f046";
+}
+.i-chevron-down:before {
+  content: "\f078";
+}
+.i-square-o:before {
+  content: "\f096";
+}
+.i-tasks-fa:before {
+  content: "\f0ae";
+}
 .i-save:before {
   content: "\f0c7";
+}
+.i-bars:before {
+  content: "\f0c9";
+}
+.i-list-ol:before {
+  content: "\f0cb";
 }
 .i-plus:before {
   content: "\f0fe";

@@ -18,9 +18,7 @@ input[type='checkbox'] {
 @include placeholder() {
   color: map-get($color, text-muted)
 };
-
-._1LCq9,
-._2TStV {
+.task-name {
   position: relative;
   margin: 0;
   width: 100%;
@@ -43,7 +41,20 @@ $todoTextLeftAlign: convertPxToRem(60px);
   position: relative;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
   .todos-header {
-    ._1LCq9 {
+    position: relative;
+    &:after {
+      left: 15px;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
+      height: convertPxToRem(24px);
+      font-size: convertPxToRem(24px);
+      display: block;
+      font-family: "ipwa";
+      content: "\f078";
+    }
+    .task-name {
       padding: 16px 16px 16px 60px;
       border: none;
       font-style: italic;
@@ -86,9 +97,6 @@ $todoTextLeftAlign: convertPxToRem(60px);
         text-align: center;
         position: relative;
         z-index: 1;
-        // &.cleaner {
-        //   flex: 2 0;
-        // }
         .toolbar-btn {
           border: 1px solid transparent;
           border-radius: 3px;
@@ -159,7 +167,7 @@ $todoTextLeftAlign: convertPxToRem(60px);
     &:checked {
       &:after {
         color: map-get($color, primary);
-        content: "\e90c";
+        content: "\f046";
       }
     }
     &:after {
@@ -170,7 +178,7 @@ $todoTextLeftAlign: convertPxToRem(60px);
       font-size: convertPxToRem(32px);
       display: block;
       font-family: "ipwa";
-      content: "\e90b";
+      content: "\f096";
     }
   }
 }

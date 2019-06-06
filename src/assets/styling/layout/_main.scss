@@ -1,3 +1,5 @@
-.page-main {
-  // do to
+@include respond-below("medium") {
+  .page-main {
+    padding-top: 64px;
+  }
 }
