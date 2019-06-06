@@ -136,6 +136,13 @@ $todoTextLeftAlign: convertPxToRem(60px);
     margin: 0;
     padding: 0;
     list-style: none;
+    app-todo-item {
+      &:last-child {
+        .todo-item {
+          border-bottom: none;
+        }
+      }
+    }
     .todo-item {
       position: relative;
       font-size: convertPxToRem(24px);
