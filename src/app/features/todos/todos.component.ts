@@ -17,11 +17,12 @@ export class TodosComponent implements OnInit {
     this.action = 'all';
     this.todos = [];
     this.counter = {
-      active: 0
+      active: 0,
+      completed: 0
     };
   }
 
-  onChange(action: string, todo: Todo) {
+  onChange(action: string, todo: Todo = null) {
     // handle action
     switch (action) {
       case 'add': this.todos = [todo, ...this.todos]; break
