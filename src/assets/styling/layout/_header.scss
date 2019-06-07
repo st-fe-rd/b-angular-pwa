@@ -1,10 +1,51 @@
 .page-header {
   @include transition(all 0.3s ease-in-out);
   text-align: center;
-  .container {
+  padding: 15px;
+  .logo {
+    max-width: 100%;
+    width: 240px;
+  }
+}
+@include respond-above("medium") {
+  .page-header {
+    .page-title {
+      margin: convertPxToRem(15px) auto;
+    }
+    .nav-bar {
+      display: none;
+    }
+  }
+}
+@include respond-below("medium") {
+  .page-header {
+    display: flex;
+    align-items: center;
+    flex-grow: 12;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+    background: map-get($color, white);
+    border-bottom: 1px solid map-get($color, border);
     .logo {
-      max-width: 100%;
-      width: 100px;
+      width: convertPxToRem(40px);
+    }
+    .page-logo {
+      // width: 45px;
+      flex: 2 0;
+    }
+    .page-title {
+      flex: 8 0;
+      font-size: convertPxToRem(32px);
+      // text-align: left;
+      // color: map-get($color, text);
+      // text-shadow: none;
+    }
+    .nav-bar {
+      flex: 2 0;
+      font-size: convertPxToRem(32px);
+      text-align: right;
     }
   }
 }

@@ -7,31 +7,32 @@ button {
   vertical-align: baseline;
   @include appearance(none);
   @include font-smoothing(antialiased);
+  &:disabled {
+    color: map-get($color, text-muted);
+  }
 }
 button,
 input,
 input[type='checkbox'] {
+  background: none;
   outline: none;
   color: inherit;
   font-family: inherit;
 }
 @include placeholder() {
-  color: map-get($color, text-muted)
-};
-
-._1LCq9,
-._2TStV {
-  position: relative;
-  margin: 0;
-  width: 100%;
-  font-size: convertPxToRem(24px);
-  line-height: 1.4em;
-  border: 0;
-  outline: none;
-  padding: 6px;
-  border: 1px solid map-get($color, border);
-  box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
-  @include font-smoothing(antialiased);
+  color: map-get($color, text-muted);
+}
+.login-btn {
+  background: map-get($color, primary);
+  color: map-get($color, white);
+  font-size: convertPxToRem(32px);
+  padding: convertPxToRem(30px) convertPxToRem(60px);
+  border-radius: convertPxToRem(5px);
+  position: fixed;
+  width: 80%;
+  left: 50%;
+  top: 50%;
+  @include transform(translate(-50%, -50%));
 }
 $todoPrimary: map-get($color, primary);
 $todoTextLeftAlign: convertPxToRem(60px);
@@ -43,21 +44,64 @@ $todoTextLeftAlign: convertPxToRem(60px);
   position: relative;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
   .todos-header {
-    ._1LCq9 {
+    position: relative;
+    &:after {
+      left: 15px;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
+      height: convertPxToRem(24px);
+      font-size: convertPxToRem(24px);
+      display: block;
+      font-family: "ipwa";
+      content: "\f078";
+    }
+    .task-name {
+      position: relative;
+      margin: 0;
+      width: 100%;
+      font-size: convertPxToRem(24px);
+      @include font-smoothing(antialiased);
       padding: 16px 16px 16px 60px;
       border: none;
       font-style: italic;
-      box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
+      @include box-shadow(inset 0px 0px 8px 4px rgba(0, 0, 0, 0.03)); 
+    }
+    .new-task {
+      position: absolute;
+      right: 15px;
+      font-size: convertPxToRem(48px);
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
+      color: map-get($color, primary);
     }
   }
   .todos-main {
     position: relative;
     z-index: 2;
     border-top: 1px solid map-get($color, border);
+    .main-message {
+      font-size: convertPxToRem(14px);
+      padding: 25px 15px;
+      color: map-get($color, text-secondary);
+      text-align: center;
+      &:before {
+        display: block;
+        font-size: convertPxToRem(40px);
+        color: map-get($color, text-muted);
+        margin-bottom: 8px;
+        font-family: "ipwa";
+        content: "\e904";
+        padding-right: convertPxToRem(8px);
+      }
+    }
   }
   .todos-footer {
+    position: relative;
     padding: 10px 15px;
-    height: 40px;
+    height: 50px;
     border-top: 1px solid map-get($color, border);
     display: flex;
     align-items: center;
@@ -76,32 +120,26 @@ $todoTextLeftAlign: convertPxToRem(60px);
                   0 16px 0 -6px #f6f6f6,
                   0 17px 2px -6px rgba(0, 0, 0, 0.2);
     }
-    .todos-footer-col {
-      position: relative;
-      z-index: 1;
-    }
-    .counter {
-      order: 3;
-      flex: 1 0;
-      text-align: right;
-    }
-    .guardian {
-      order: 1;
-      flex: 1 0;
-    }
-    .filter {
-      order: 2;
-      flex: 3 0;
-      text-align: center;
-      li {
-        display: inline;
-        ._2VhED {
+    .todos-footer-toolbar {
+      display: flex;
+      flex-grow: 5;
+      align-items: center;
+      .toolbar-item {
+        flex: 1 0;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+        .toolbar-btn {
           border: 1px solid transparent;
           border-radius: 3px;
           padding: 3px 8px;
-          &:hover {
+          &:hover,
+          &.active {
             border-color: map-get($color, primary);
           }
+        }
+        [class*="i-"] {
+          display: none;
         }
       }
     }
@@ -110,19 +148,27 @@ $todoTextLeftAlign: convertPxToRem(60px);
     margin: 0;
     padding: 0;
     list-style: none;
+    app-todo-item {
+      &:last-child {
+        .todo-item {
+          border-bottom: none;
+        }
+      }
+    }
     .todo-item {
       position: relative;
       font-size: convertPxToRem(24px);
-      border-bottom: 1px solid map-get($color, border);
-      &:last-child {
-        border-bottom: none;
-      }
+      border-bottom: 1px solid map-get($color, border-secondary);
+      user-select: none;
+      // &:last-child {
+      //   border-bottom: none;
+      // }
       &:hover {
-        ._6oXTL {
+        .item-btn {
           display: block;
         }
       }
-      label {
+      .item-name {
         white-space: pre-line;
         word-break: break-all;
         padding: 15px 60px 15px 15px;
@@ -130,8 +176,12 @@ $todoTextLeftAlign: convertPxToRem(60px);
         display: block;
         line-height: 1.2;
         @include transition(color 0.4s);
+        &.is-completed {
+          color: map-get($color, text-muted);
+          text-decoration: line-through;
+        }
       }
-      ._6oXTL {
+      .item-btn {
         display: none;
         position: absolute;
         top: 0;
@@ -139,32 +189,104 @@ $todoTextLeftAlign: convertPxToRem(60px);
         bottom: 0;
         height: 100%;
         font-size: 30px;
-        color: $todoPrimary;
+        color: map-get($color, text-muted);
         transition: color 0.2s ease-out;
         &:after {
-          content: "\D7";
+          font-family: "ipwa";
+          content: "\e909";
         }
       }
     }
   }
   .item-check {
     text-align: center;
-    width: convertPxToRem(24px);
-    height: convertPxToRem(24px);
+    width: convertPxToRem(32px);
+    height: convertPxToRem(32px);
     position: absolute;
     top: 0;
     bottom: 0;
     left: 15px;
     margin: auto 0;
-    border: 1px solid map-get($color, border);
+    border: none;
+    @include appearance(none);
+    &:checked {
+      &:after {
+        color: map-get($color, primary);
+        content: "\e90c";
+      }
+    }
     &:after {
-      content: ""
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
+      font-size: convertPxToRem(32px);
+      display: block;
+      font-family: "ipwa";
+      content: "\e90b";
+      color: map-get($color, text-muted);
     }
   }
 }
-@include respond-below("large") {
+@include respond-above("medium") {
+  .todos-footer-toolbar {
+    flex-grow: 7;
+    .toolbar-item {
+      &.cleaner,
+      &.counter {
+        flex: 2 0 !important;
+      }
+      &.cleaner {
+        text-align: right !important;;
+      }
+      &.counter {
+        text-align: left !important;;
+      }
+    }
+  }
+}
+@include respond-below("medium") {
   .todos {
     width: 100%;
     margin: 0;
+    left: 0;
+    @include transform(unset);
+    @include box-shadow(unset);
+    .todo-list {
+      .todo-item {
+        .item-btn {
+          display: block;
+        }
+      }
+    }
+    .todos-footer {
+      background: map-get($color, white);
+      position: fixed;
+      z-index: 9000;
+      bottom: 0;
+      width: 100%;
+      padding: convertPxToRem(8px) convertPxToRem(15px);
+      height: auto;
+      &:before {
+        display: none;
+      }
+      .todos-footer-toolbar {
+        .toolbar-item {
+          font-size: convertPxToRem(10px);
+          [class*="i-"],
+          [class*="n-"] {
+            display: block;
+            font-size: convertPxToRem(24px);
+          }
+          .toolbar-btn {
+            border: none;
+            padding: 0;
+            &.active {
+              color: map-get($color, primary);
+            }
+          }
+        }
+      }
+    }
   }
 }

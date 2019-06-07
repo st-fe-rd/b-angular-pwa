@@ -1,11 +1,9 @@
-<li class="todo-item">
-  <div class="R2I1d">
-    <input  type="checkbox" 
-            class="item-check"
-            id="item-{{ todo.id }}"
-            [checked]="todo.isCompleted"
-            (click)="onToggle()">
-    <label>{{todo.name}}</label>
-    <button class="_6oXTL" (click)="onDelete()"></button>
-  </div>
+<li class="todo-item animated bounceInDown faster" [ngClass]="{ 'fadeOutLeft': todo?.isDeleting}">
+  <input type="checkbox" 
+    class="item-check"
+    id="item-{{ todo.id }}"
+    [checked]="todo?.isCompleted"
+    (click)="onToggle()">
+  <label for="item-{{ todo.id }}" class="item-name" [ngClass]="{ 'is-completed': todo?.isCompleted }">{{todo.name}}</label>
+  <button class="item-btn" (click)="onDelete()"></button>
 </li>

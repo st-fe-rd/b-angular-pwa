@@ -24,4 +24,8 @@ export class AddToHomescreenComponent implements OnInit {
     this.isVisible = isIos() && !isInStandaloneMode();
   }
 
+  close() {
+    this.isVisible = false;
+  }
+
 }

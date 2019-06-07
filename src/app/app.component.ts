@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { I18nService } from './core/service/i18n/i18n.service';
 import { filter } from 'rxjs/operators';
 import { AuthService } from './core/service';
@@ -15,12 +15,14 @@ I18nService.SUPPORTED_LANGUAGES = [
 // Set type active for current language
 I18nService.ACTIVE_TYPE = 'selected';
 
+declare var FastClick;
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html'
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
   title: 'app';
   selectedFile: null;
   noBackHeader: any = [];
@@ -30,9 +32,9 @@ export class AppComponent implements OnInit {
   constructor(
     public i18n: I18nService,
     private auth: AuthService,
-    private router: Router, 
+    private router: Router,
     private activatedRoute: ActivatedRoute,
-  ) { 
+  ) {
     this.noBackHeader = [
       /\/home/,
       /\/auth\/login/
@@ -40,6 +42,14 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  ngAfterViewInit() {
+    if ('addEventListener' in document) {
+      document.addEventListener('DOMContentLoaded', function() {
+          FastClick.attach(document.body);
+      }, false);
+    }
   }
 
 }
