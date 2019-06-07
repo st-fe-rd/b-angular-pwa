@@ -1,9 +1,13 @@
-# Front End HttpClient Service
+# PWA Boilerplate and Sample
+
+## Prerequisite
+
+- Node ^10.9.0
 
 ## Contains
 
-- [x] [Typescript](https://www.typescriptlang.org/) 3
-- [x] [Angular](https://github.com/angular) 7
+- [x] [Typescript](https://www.typescriptlang.org/) 3.4.5
+- [x] [Angular](https://github.com/angular) 8.0.0
 
 ## Installation & Running
 
@@ -16,12 +20,9 @@ $ npm start
 
 =========================
 
-## DOCUMENT
+## Live Demo
 
-This repository provide:
-- ApiService for all methods - work with `HttpClient`.
-- Auto setting headers for all requests with `interceptor`. Check code at file `app/core/service/auth/token-interceptor.service.ts`
-- Auto catch error message and push the error popup. check code at file `app/core/service/api/error-handler.ts`
+- [x] [Todos App](https://todo-app-bfae0.firebaseapp.com)
 
 =========================
 
