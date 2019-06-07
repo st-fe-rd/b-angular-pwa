@@ -4,6 +4,9 @@
   &.wide {
     width: calc(100% - 20px);
   }
+  &.fixed {
+    position: fixed;
+  }
   &.b-c {
     bottom: 10px;
     left: 50%;
