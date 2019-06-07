@@ -10,7 +10,10 @@
         <input class="input-form" type="password" name="password" id="password" ngModel maxlength="20">
       </div>
       <div class="text-centered">
-        <button class="btn" [disabled]="!formLogin.valid || !canAction" type="submit" [className]="formLogin.valid ? 'btn btn-login' : 'btn btn-disabled'">Login</button>
+        <button class="login-btn" [disabled]="!formLogin.valid || !canAction" type="submit">
+          <i class="i-hand-pointer-o block"></i>
+          Click to login
+        </button>
         <a class="forgot-link hidden" [routerLink]="['/forgot']">
           <p>Forgot your User ID/Password?</p>
         </a>
