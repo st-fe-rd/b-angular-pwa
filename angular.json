@@ -28,7 +28,9 @@
               "./node_modules/animate.css/animate.min.css",
               "src/assets/styling/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/fastclick/lib/fastclick.js"
+            ]
           },
           "configurations": {
             "production": {
