@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-import { RequestOptionsArgs, Response, RequestMethod } from '@angular/http';
-import { throwError, Subject } from 'rxjs';
-import { Observable } from 'rxjs/Observable';
+import { throwError, Subject, Observable } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { takeUntil, map, catchError } from 'rxjs/operators';
 import { environment } from '../../../../environments/environment';
@@ -11,8 +9,8 @@ const apiBaseUrl = `${environment.apiBaseUrl}/api`;
 export interface MultipleReq {
   uri: Array<any> | any;
   body?: any;
-  method: string | RequestMethod;
-  options?: RequestOptionsArgs;
+  method: string | any; // RequestMethod is outdated
+  options?: any; // RequestOptionsArgs is outdated
 }
 
 export interface ErrorMsg {

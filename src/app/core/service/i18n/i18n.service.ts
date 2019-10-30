@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
 import { TranslateLoader, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
