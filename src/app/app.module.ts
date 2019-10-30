@@ -6,7 +6,6 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient, HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpHeaders } from '@angular/common/http';
-import { NgwWowModule } from 'ngx-wow';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
@@ -44,7 +43,6 @@ export function tokenGetter() {
     DeviceDetectorModule.forRoot(),
     // NoopAnimationsModule,
     FormsModule,
-    NgwWowModule,
     MatDialogModule,
     ReactiveFormsModule,
     HttpClientModule,
