@@ -27,8 +27,14 @@
               "src/manifest.json"
             ],
             "styles": [
-              "./node_modules/animate.css/animate.min.css",
-              "src/styling/styles.scss"
+              {
+                "input": "./node_modules/animate.css/animate.min.css",
+                "bundleName": "assets/css/animate-styles"
+              },
+              {
+                "input": "src/styling/styles.scss",
+                "bundleName": "assets/css/styles"
+              }
             ],
             "scripts": [
               "./node_modules/fastclick/lib/fastclick.js"
@@ -110,7 +116,10 @@
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [],
             "styles": [
-              "src/styling/styles.scss"
+              {
+                "input": "src/styling/styles.scss",
+                "bundleName": "assets/css/styles"
+              }
             ],
             "assets": [
               "src/assets",
