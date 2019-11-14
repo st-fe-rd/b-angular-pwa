@@ -12,12 +12,12 @@ export class TokenInterceptorService implements HttpInterceptor {
   ) {}
 
   // Automatic set all infomation in headers
-  intercept (req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const authReq = req.clone({
       headers: new HttpHeaders({
         'access-token': localStorage.getItem('access-token') ? localStorage.getItem('access-token') : '',
-        'uid': localStorage.getItem('uid') ? localStorage.getItem('uid') : '',
-        'client': localStorage.getItem('client') ? localStorage.getItem('client') : '',
+        uid: localStorage.getItem('uid') ? localStorage.getItem('uid') : '',
+        client: localStorage.getItem('client') ? localStorage.getItem('client') : '',
       })
     });
 
@@ -27,6 +27,6 @@ export class TokenInterceptorService implements HttpInterceptor {
           this.errorHandler.handleError(err);
         }
       })
-    )
+    );
   }
 }

@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
     this.auth.logger.subscribe((data: any) => {
       this.errorMsgs = data;
       this.canAction = true;
-    })
+    });
   }
 
   ngOnInit() {
@@ -31,8 +31,8 @@ export class LoginComponent implements OnInit {
   onSubmit(f: NgForm) {
     this.canAction = false;
     const body = {
-      'userId': f.value.username,
-      'password': f.value.password
+      userId: f.value.username,
+      password: f.value.password
     };
     this.auth.postLogin(body);
   }

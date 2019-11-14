@@ -6,7 +6,7 @@ import { ApiService, VERSION, ENDPOINT } from '../api/api.service';
 @Injectable()
 export class AuthService {
 
-  logger = new Subject<Object>();
+  logger = new Subject<boolean>();
   referralRoute: string;
 
   constructor(
@@ -27,8 +27,8 @@ export class AuthService {
     this.api.get(['token.json'], {}).subscribe(
       (res: any) => {
         localStorage.setItem('access-token', res['access-token']);
-        localStorage.setItem('uid', res['uid']);
-        localStorage.setItem('client', res['client']);
+        localStorage.setItem('uid', res.uid);
+        localStorage.setItem('client', res.client);
         this.logger.next(true);
         this.redirectToPrevStep();
       },
@@ -72,7 +72,7 @@ export class AuthService {
   isTokenInvalid() {
     const token = localStorage.getItem('access-token');
     if (!token) {
-      return true
+      return true;
     } else {
       // this.api.setHeaders(token);
       return false;

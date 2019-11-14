@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { HttpErrorResponse, HttpClient } from '@angular/common/http';
 import { throwError, Subject, Observable } from 'rxjs';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { takeUntil, map, catchError } from 'rxjs/operators';
 import { environment } from '../../../../environments/environment';
 
 const apiBaseUrl = `${environment.apiBaseUrl}/api`;
 
+// TODO: refactor this api service
 export interface MultipleReq {
   uri: Array<any> | any;
   body?: any;
@@ -14,9 +15,9 @@ export interface MultipleReq {
 }
 
 export interface ErrorMsg {
-  status: Number;
+  status: number;
   errors: Array<any> | any;
-  success: Boolean;
+  success: boolean;
 }
 
 export const VERSION_LIST = {
@@ -50,7 +51,7 @@ export class ApiService {
    * @param  {RequestOptionsArgs}   options Additional setting for API call
    * @return {Observable<Response>}         Response data and/or error message
    */
-  public get(uri: Array<any> | any, queryOptions?: Object): Observable<ArrayBuffer> {
+  public get(uri: Array<any> | any, queryOptions?: object): Observable<ArrayBuffer> {
     const [url, queryParams] = this._constructRequest(uri, queryOptions);
     const request = this.http.get(url, queryParams);
     return this._connect(request);
@@ -65,7 +66,7 @@ export class ApiService {
    * @param  {RequestOptionsArgs}   options Additional setting for API call
    * @return {Observable<Response>}         Response data and/or error message
    */
-  public post(uri: Array<any> | any, body: any, queryOptions?: Object, fullRes = false): Observable<ArrayBuffer> {
+  public post(uri: Array<any> | any, body: any, queryOptions?: object, fullRes = false): Observable<ArrayBuffer> {
     const [url, queryParams] = this._constructRequest(uri, queryOptions, fullRes);
     const request = this.http.post(url, body, queryParams);
     return this._connect(request);
@@ -80,7 +81,7 @@ export class ApiService {
    * @param  {RequestOptionsArgs}   options Additional setting for API call
    * @return {Observable<Response>}         Response data and/or error message
    */
-  public postFormData(uri: Array<any> | any, body: any, queryOptions?: Object): Observable<ArrayBuffer> {
+  public postFormData(uri: Array<any> | any, body: any, queryOptions?: object): Observable<ArrayBuffer> {
     const [url, queryParams] = this._constructRequest(uri, queryOptions);
     const form = this._form(body);
     const request = this.http.post(url, form).pipe(takeUntil(this.ngUnsubscribe));
@@ -103,26 +104,26 @@ export class ApiService {
   // }
 
    /**
-   * Perform DELETE HTTP method
-   * @method delete
-   * @param  {Array<any> | any}     uri     Describe API endpoint by mixed array
-   *                                        or a string or single number
-   * @param  {RequestOptionsArgs}   options Additional setting for API call
-   * @return {Observable<Response>}         Response data and/or error message
-   */
-  public delete(uri: Array<any> | any, queryOptions?: Object): Observable<ArrayBuffer> {
+    * Perform DELETE HTTP method
+    * @method delete
+    * @param  {Array<any> | any}     uri     Describe API endpoint by mixed array
+    *                                        or a string or single number
+    * @param  {RequestOptionsArgs}   options Additional setting for API call
+    * @return {Observable<Response>}         Response data and/or error message
+    */
+  public delete(uri: Array<any> | any, queryOptions?: object): Observable<ArrayBuffer> {
     const [url, queryParams] = this._constructRequest(uri, queryOptions);
     const request = this.http.delete(url, queryParams);
     return this._connect(request);
   }
 
-  private _constructRequest(uri: Array<any> | any, moreOptions?: Object | any, fullRes?: Boolean): any {
+  private _constructRequest(uri: Array<any> | any, moreOptions?: object | any, fullRes?: boolean): any {
     const url = Array.prototype.concat(apiBaseUrl, uri).join(String.fromCharCode(47));
     const paramsRequest = {};
     if (moreOptions) {
       Object.keys(moreOptions).forEach(x => {
         paramsRequest[`${x}`] = `${moreOptions[x]}`;
-      })
+      });
     }
     return fullRes ? [url, { params: paramsRequest, observe: 'response' }] : [url, { params: paramsRequest }];
   }
@@ -135,7 +136,7 @@ export class ApiService {
       catchError((err: HttpErrorResponse) => {
         return this._handleError(err);
       })
-    )
+    );
   }
 
   /**

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { TranslateLoader, TranslateService } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable()
 /**
@@ -9,7 +8,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
  * Handling switch language
  * Handling language displayed and storage
  * Read supported languages
- **/
+ */
 export class I18nService {
 
   // default supported languages
@@ -28,7 +27,7 @@ export class I18nService {
 
   /**
    * Handling switch language
-   **/
+   */
   switchLang(lang: any) {
     this.usedLang = lang;
     this.setLang();
@@ -36,7 +35,7 @@ export class I18nService {
 
   /**
    * Handling language display and storage
-   **/
+   */
   setLang() {
     this.translate.use(this.usedLang);
     // Set current lang to localstorage
@@ -44,13 +43,13 @@ export class I18nService {
 
     const index = I18nService.SUPPORTED_LANGUAGES.findIndex((item) => item.code === this.usedLang);
     if (index !== -1) {
-      I18nService.SUPPORTED_LANGUAGES[index]['active'] = I18nService.ACTIVE_TYPE;
+      I18nService.SUPPORTED_LANGUAGES[index].active = I18nService.ACTIVE_TYPE;
     }
   }
 
   /**
    * Get supported languages
-   **/
+   */
   getLangs() {
     return I18nService.SUPPORTED_LANGUAGES;
   }

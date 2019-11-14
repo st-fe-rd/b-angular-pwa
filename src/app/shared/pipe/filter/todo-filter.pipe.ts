@@ -6,7 +6,7 @@ import { Todo } from 'app/shared/model/todo/todo.model';
 })
 export class TodoFilterPipe implements PipeTransform {
 
-  transform(allTodos: Todo[], action: String): Todo[] {
+  transform(allTodos: Todo[], action: string): Todo[] {
     switch (action) {
       case 'active': return allTodos.filter(event => !event.isCompleted);
       case 'completed': return allTodos.filter(event => event.isCompleted);

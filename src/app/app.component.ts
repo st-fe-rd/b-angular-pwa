@@ -1,8 +1,7 @@
-import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { I18nService } from './core/service/i18n/i18n.service';
-import { filter } from 'rxjs/operators';
 import { AuthService } from './core/service';
-import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 // Define list language for app
@@ -27,7 +26,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   selectedFile: null;
   noBackHeader: any = [];
   deviceInfo: any;
-  isHeaderShow: Boolean = true;
+  isHeaderShow = true;
 
   constructor(
     public i18n: I18nService,
@@ -38,7 +37,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.noBackHeader = [
       /\/home/,
       /\/auth\/login/
-    ]
+    ];
   }
 
   ngOnInit() {
@@ -46,7 +45,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     if ('addEventListener' in document) {
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('DOMContentLoaded', () => {
           FastClick.attach(document.body);
       }, false);
     }

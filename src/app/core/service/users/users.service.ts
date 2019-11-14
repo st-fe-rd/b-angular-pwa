@@ -16,7 +16,7 @@ export class UsersService {
   getCurrentUser(options = {}) {
     return this.api.get(['fe.json'], options).subscribe((user: any) => {
       this.userInfo$.next(user);
-    })
+    });
   }
 }
 
