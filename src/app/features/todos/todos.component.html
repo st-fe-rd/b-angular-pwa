@@ -5,7 +5,7 @@
       <app-todo-item *ngFor="let todo of todos | todoFilter:action"
                     [todo]="todo"
                     (deleteMe)="onChange('delete', $event)"
-                    (toggleMe)="onChange()"
+                    (toggleMe)="onChange('')"
                     ng-non-bindable>
       </app-todo-item>
     </ul>

@@ -1,17 +1,22 @@
-import { Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
 import { AuthComponent } from './auth.component';
-import { AuthGuard } from '../core/service/auth/auth-guard';
 
 export const authRoutes: Routes = [
   {
-    path: 'auth',
+    path: '',
     component: AuthComponent,
-    canActivate: [AuthGuard],
     children: [
       {
         path: 'login',
-        loadChildren: 'app/auth/login/login.module#LoginModule'
+        loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
       }
     ]
   }
 ];
+
+@NgModule({
+  imports: [RouterModule.forChild(authRoutes)],
+  exports: [RouterModule]
+})
+export class AuthRoutingModule {}

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { AuthComponent } from './auth.component';
-import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/module/shared.module';
+import { AuthRoutingModule } from './auth.routing';
 
 @NgModule({
   declarations: [
@@ -9,7 +9,7 @@ import { SharedModule } from '../shared/module/shared.module';
   ],
   imports: [
     SharedModule,
-    RouterModule
+    AuthRoutingModule
   ]
 })
 export class AuthModule { }
