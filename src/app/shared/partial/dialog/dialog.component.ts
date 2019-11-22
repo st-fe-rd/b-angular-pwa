@@ -34,7 +34,7 @@ export class DialogComponent implements OnInit, OnDestroy {
     location.reload();
   }
 
-  onCloseDialog(agree: Boolean) {
+  onCloseDialog(agree: boolean) {
     this.dialogRef.close(agree);
   }
 

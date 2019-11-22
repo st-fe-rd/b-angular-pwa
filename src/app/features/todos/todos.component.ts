@@ -8,7 +8,7 @@ import { Todo } from 'app/shared/model/todo/todo.model';
 export class TodosComponent implements OnInit {
 
   todos: Todo[];
-  action: String;
+  action: string;
   counter: any;
 
   constructor() {}
@@ -27,14 +27,14 @@ export class TodosComponent implements OnInit {
     switch (action) {
       case 'add':
         this.todos = [todo, ...this.todos];
-        break
+        break;
       case 'delete':
         // just for animation handling
         todo.isDeleting = true;
         setTimeout(() => {
-          this.todos = this.todos.filter(item => item.id !== todo.id)
+          this.todos = this.todos.filter(item => item.id !== todo.id);
         }, 500);
-        break
+        break;
       case 'finish':
         // just for animation handling
         const completedItems = this.todos.filter((item: Todo) => {
@@ -44,9 +44,9 @@ export class TodosComponent implements OnInit {
           return !item.isCompleted;
         });
         setTimeout(() => {
-          this.todos = completedItems
+          this.todos = completedItems;
         }, 500);
-        break
+        break;
       default: break;
     }
     // update counter when data changed
