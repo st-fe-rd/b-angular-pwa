@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { FeatureComponent } from './feature.component';
 import { HeaderModule } from '../shared/layout/header/header.module';
@@ -13,7 +14,7 @@ import { TodosHeaderComponent } from './todos/todos-header/todos-header.componen
 import { TodosFooterComponent } from './todos/todos-footer/todos-footer.component';
 import { TodoItemComponent } from './todos/todo-item/todo-item.component';
 import { TodoFilterPipe } from 'app/shared/pipe/filter/todo-filter.pipe';
-import { FeatureRoutingModule } from './feature.routing';
+import { featureRoutes } from './feature.routing';
 
 @NgModule({
   imports: [
@@ -23,7 +24,7 @@ import { FeatureRoutingModule } from './feature.routing';
     DialogModule,
     SharedModule,
     ReactiveFormsModule,
-    FeatureRoutingModule
+    RouterModule.forChild(featureRoutes)
   ],
   declarations: [
     FeatureComponent,

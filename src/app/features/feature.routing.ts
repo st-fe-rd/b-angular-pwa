@@ -1,5 +1,4 @@
-import { Routes, RouterModule } from '@angular/router';
-import { NgModule } from '@angular/core';
+import { Routes } from '@angular/router';
 import { FeatureComponent } from './feature.component';
 
 export const featureRoutes: Routes = [
@@ -8,9 +7,3 @@ export const featureRoutes: Routes = [
     component: FeatureComponent,
   }
 ];
-
-@NgModule({
-  imports: [RouterModule.forChild(featureRoutes)],
-  exports: [RouterModule]
-})
-export class FeatureRoutingModule { }
