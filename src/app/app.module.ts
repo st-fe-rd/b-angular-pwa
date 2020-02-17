@@ -9,8 +9,6 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
-import { AuthModule } from './auth/auth.module';
-import { FeatureModule } from './features/feature.module';
 import { CoreModule } from './core/module/core.module';
 import { DeviceDetectorModule } from 'ngx-device-detector';
 import { AddToHomescreenModule } from './shared/partial/add-to-homescreen/add-to-homescreen.module';
@@ -48,11 +46,9 @@ export function tokenGetter() {
         deps: [HttpClient]
       }
     }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     AppRoutingModule,
     CoreModule.forRoot(),
-    AuthModule,
-    FeatureModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     AddToHomescreenModule
   ],
   providers: [
