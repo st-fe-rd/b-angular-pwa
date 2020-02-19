@@ -12,7 +12,7 @@
           "builder": "@angular-builders/custom-webpack:browser",
           "options": {
             "customWebpackConfig": {
-              "path": "./webpack.config.js"
+              "path": "webpack.config.js"
             },
             "outputPath": "dist",
             "index": "src/index.html",
@@ -32,7 +32,7 @@
                 "bundleName": "assets/css/animate-styles"
               },
               {
-                "input": "src/styling/styles.scss",
+                "input": "src/stylesheet/styles.scss",
                 "bundleName": "assets/css/styles"
               }
             ],
@@ -83,9 +83,6 @@
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
             "browserTarget": "test-cli:build",
-            "customWebpackConfig": {
-              "path": "./webpack.config.js"
-            },
             "port": 4100
           },
           "configurations": {
@@ -97,17 +94,14 @@
         "extract-i18n": {
           "builder": "@angular-builders/custom-webpack:extract-i18n",
           "options": {
-            "browserTarget": "test-cli:build",
-            "customWebpackConfig": {
-              "path": "./webpack.config.js"
-            }
+            "browserTarget": "test-cli:build"
           }
         },
         "test": {
           "builder": "@angular-builders/custom-webpack:karma",
           "options": {
             "customWebpackConfig": {
-              "path": "./webpack.config.js"
+              "path": "webpack.config.js"
             },
             "main": "src/test.ts",
             "karmaConfig": "./karma.conf.js",
@@ -117,14 +111,13 @@
             "scripts": [],
             "styles": [
               {
-                "input": "src/styling/styles.scss",
+                "input": "src/stylesheet/styles.scss",
                 "bundleName": "assets/css/styles"
               }
             ],
             "assets": [
               "src/assets",
               "src/api",
-              "src/favicon.ico",
               "src/manifest.webmanifest"
             ]
           }

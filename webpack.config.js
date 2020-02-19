@@ -2,7 +2,7 @@ const MergeJsonWebpackPlugin = require('merge-jsons-webpack-plugin');
 const { join } = require('path');
 const { readdirSync } = require('fs');
 
-const LANGUAGE_FOLDER = './src/assets/i18n'; // Relative to this file
+const LANGUAGE_FOLDER = './src/i18n'; // Relative to this file
 const OUTPUT_FOLDER = './assets/i18n'; // Relative to the outputPath of angular build config
 
 const getDirectories = source => readdirSync(source, { withFileTypes: true })
