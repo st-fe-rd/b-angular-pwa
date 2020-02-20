@@ -9,16 +9,17 @@ import { FooterModule } from '../shared/layout/footer/footer.module';
 import { DialogModule } from '../shared/partial/dialog/dialog.module';
 import { UsersService } from '../core/service/users/users.service';
 import { SharedModule } from 'app/shared/module/shared.module';
-import { TodosComponent } from './todos/todos.component';
-import { TodosHeaderComponent } from './todos/todos-header/todos-header.component';
-import { TodosFooterComponent } from './todos/todos-footer/todos-footer.component';
-import { TodoItemComponent } from './todos/todo-item/todo-item.component';
-import { TodoFilterPipe } from 'app/shared/pipe/filter/todo-filter.pipe';
 
+import { homeRoutes } from './home/home.routing';
+import { articleRoutes } from './article/article.routing';
 const routes: Routes = [
   {
     path: '',
     component: FeatureComponent,
+    children: [
+      ...homeRoutes,
+      ...articleRoutes
+    ]
   }
 ];
 
@@ -33,12 +34,7 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
   declarations: [
-    FeatureComponent,
-    TodosComponent,
-    TodosHeaderComponent,
-    TodosFooterComponent,
-    TodoItemComponent,
-    TodoFilterPipe
+    FeatureComponent
   ],
   providers: [
     UsersService

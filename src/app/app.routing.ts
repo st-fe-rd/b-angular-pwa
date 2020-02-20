@@ -5,7 +5,12 @@ import { featureRoutes } from './features/feature.routing';
 
 const routes: Routes = [
   ...authRoutes,
-  ...featureRoutes
+  ...featureRoutes,
+  {
+    path: '**',
+    redirectTo: '/',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({
